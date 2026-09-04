@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deniston — Python Fullstack Trainer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./static/style.css">
+</head>
+<body>
+
+<div class="grain"></div>
+
+<header class="nav">
+  <a href="#top" class="nav__mark">deniston<span class="dot">.</span>py</a>
+  <nav class="nav__links">
+    <a href="#about">about</a>
+    <a href="#skills">skills</a>
+    <a href="#training">training</a>
+    <a href="#contact">contact</a>
+  </nav>
+  <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="hero__text">
+      <p class="hero__kicker">Python Fullstack Trainer</p>
+      <h1 class="hero__title">Deniston teaches<br>people to build<br>real software.</h1>
+      <p class="hero__lede">
+        Six years turning beginners into backend and fullstack developers —
+        Python, Django, REST APIs, and the JavaScript that connects them.
+        Classroom-tested, project-first, no fluff.
+      </p>
+      <div class="hero__actions">
+        <a href="#training" class="btn btn--solid">See what I teach</a>
+        <a href="#contact" class="btn btn--line">Book a session</a>
+      </div>
+      <dl class="hero__stats">
+        <div><dt>6+</dt><dd>years training</dd></div>
+        <div><dt>1,200+</dt><dd>students taught</dd></div>
+        <div><dt>40+</dt><dd>cohorts run</dd></div>
+      </dl>
+    </div>
+
+    <div class="hero__panel">
+      <div class="editor">
+        <div class="editor__bar">
+          <span></span><span></span><span></span>
+          <p>trainer.py</p>
+        </div>
+        <pre class="editor__body"><code><span class="c-kw">class</span> <span class="c-cls">Deniston</span>(<span class="c-cls">Trainer</span>):
+    <span class="c-kw">def</span> <span class="c-fn">__init__</span>(self):
+        self.stack = [<span class="c-str">"Python"</span>, <span class="c-str">"Django"</span>,
+                      <span class="c-str">"REST"</span>, <span class="c-str">"JS"</span>, <span class="c-str">"SQL"</span>]
+        self.style = <span class="c-str">"project-first"</span>
+
+    <span class="c-kw">def</span> <span class="c-fn">teach</span>(self, student):
+        <span class="c-kw">while</span> <span class="c-kw">not</span> student.job_ready:
+            student.build()
+            student.debug()
+            student.ship()
+        <span class="c-kw">return</span> <span class="c-str">"developer"</span><span class="cursor">▍</span></code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="about" id="about">
+    <div class="section-head">
+      <span class="section-num">01</span>
+      <h2>About</h2>
+    </div>
+    <div class="about__grid">
+      <p class="about__lead">
+        I spent four years as a backend engineer before I realized I liked
+        explaining the "why" behind the code more than writing it alone.
+        Now I run cohorts that take people from print("hello world")
+        to shipping fullstack apps with auth, databases, and deployment.
+      </p>
+      <div class="about__facts">
+        <div class="fact">
+          <h3>How I teach</h3>
+          <p>Every concept is tied to a project. You don't watch me code —
+          you build alongside me, break things, and fix them.</p>
+        </div>
+        <div class="fact">
+          <h3>Who I teach</h3>
+          <p>Career switchers, CS grads who never shipped anything, and
+          teams upskilling into Python fullstack roles.</p>
+        </div>
+        <div class="fact">
+          <h3>Where I've trained</h3>
+          <p>In-house bootcamps, corporate upskilling programs, and
+          one-on-one mentorships across three time zones.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SKILLS ============ -->
+  <section class="skills" id="skills">
+    <div class="section-head">
+      <span class="section-num">02</span>
+      <h2>Skills I bring in</h2>
+    </div>
+    <div class="imports">
+      <p class="imports__line"><span class="c-kw">from</span> backend <span class="c-kw">import</span> Python, Django, FastAPI, Flask</p>
+      <p class="imports__line"><span class="c-kw">from</span> data <span class="c-kw">import</span> PostgreSQL, MySQL, MongoDB, Redis</p>
+      <p class="imports__line"><span class="c-kw">from</span> frontend <span class="c-kw">import</span> JavaScript, React, HTML, CSS</p>
+      <p class="imports__line"><span class="c-kw">from</span> devops <span class="c-kw">import</span> Git, Docker, Linux, CI_CD</p>
+      <p class="imports__line"><span class="c-kw">from</span> practice <span class="c-kw">import</span> REST_APIs, Testing, Debugging, Auth</p>
+    </div>
+  </section>
+
+  <!-- ============ TRAINING ============ -->
+  <section class="training" id="training">
+    <div class="section-head">
+      <span class="section-num">03</span>
+      <h2>Training programs</h2>
+    </div>
+    <ul class="syllabus">
+      <li class="syllabus__item">
+        <h3>Python Foundations</h3>
+        <p>Syntax, data structures, OOP, and file handling — for people who've
+        never written a line of code before.</p>
+        <span class="syllabus__meta">4 weeks · beginner</span>
+      </li>
+      <li class="syllabus__item">
+        <h3>Django & REST APIs</h3>
+        <p>Models, views, serializers, authentication, and shipping a
+        production-style API from scratch.</p>
+        <span class="syllabus__meta">6 weeks · intermediate</span>
+      </li>
+      <li class="syllabus__item">
+        <h3>Fullstack Capstone</h3>
+        <p>Connect a Django backend to a React frontend, add a real database,
+        and deploy the whole thing.</p>
+        <span class="syllabus__meta">8 weeks · advanced</span>
+      </li>
+      <li class="syllabus__item">
+        <h3>Corporate Upskilling</h3>
+        <p>Custom curriculum for teams moving existing engineers into
+        Python fullstack roles.</p>
+        <span class="syllabus__meta">flexible · custom</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="contact" id="contact">
+    <div class="section-head">
+      <span class="section-num">04</span>
+      <h2>Get in touch</h2>
+    </div>
+    <div class="contact__grid">
+      <p class="contact__lede">
+        Want to run a cohort, book a session, or just ask whether Python
+        fullstack is the right path for you? Send a message.
+      </p>
+      <form class="terminal-form" id="contactForm">
+        <div class="terminal-form__bar">
+          <span></span><span></span><span></span>
+          <p>message.txt</p>
+        </div>
+        <div class="terminal-form__body">
+          <label for="name">name =</label>
+          <input type="text" id="name" name="name" required placeholder='"Your name"'>
+
+          <label for="email">email =</label>
+          <input type="email" id="email" name="email" required placeholder='"you@example.com"'>
+
+          <label for="message">message =</label>
+          <textarea id="message" name="message" required placeholder='"What would you like to learn?"'></textarea>
+
+          <button type="submit" class="btn btn--solid">send(message)</button>
+          <p class="terminal-form__status" id="formStatus" role="status"></p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>© <span id="year"></span> Deniston. Built line by line, like the code.</p>
+</footer>
+
+<script src="./static/script.js"></script>
+</body>
+</html>
