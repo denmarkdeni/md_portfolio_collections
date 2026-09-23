@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Thomas Peter — Full-Stack Developer</title>
+<meta name="description" content="Thomas Peter — Full-Stack Developer & AI Enthusiast. B.Tech in Artificial Intelligence, Bharath University." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- persistent animated node network background -->
+<canvas id="bg-canvas"></canvas>
+<div class="grain"></div>
+
+<!-- progress bar -->
+<div class="scroll-progress"><div class="scroll-progress__bar" id="scrollBar"></div></div>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <a href="#home" class="nav__logo">TP<span class="dot">.</span></a>
+  <nav class="nav__links">
+    <a href="#about" data-nav>About</a>
+    <a href="#education" data-nav>Education</a>
+    <a href="#skills" data-nav>Skills</a>
+    <a href="#experience" data-nav>Journey</a>
+    <a href="#contact" data-nav>Contact</a>
+  </nav>
+  <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- HERO -->
+<section id="home" class="hero">
+  <p class="hero__eyebrow mono">// hello, world</p>
+  <h1 class="hero__name">
+    <span class="line">Maria</span>
+    <span class="line hero__name--accent">Deniston</span>
+  </h1>
+  <p class="hero__tagline mono" id="typewriter"></p>
+  <p class="hero__sub">B.Tech in Artificial Intelligence, Bharath University — Class of 2026. Building things at the intersection of code and curiosity.</p>
+  <div class="hero__cta">
+    <a href="#skills" class="btn btn--primary">View Skills</a>
+    <a href="#contact" class="btn btn--ghost">Get In Touch</a>
+  </div>
+  <a href="#about" class="hero__scroll" aria-label="Scroll down">
+    <span class="hero__scroll-line"></span>
+  </a>
+</section>
+
+<main>
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="section__head reveal">
+      <p class="eyebrow mono">01 — About</p>
+      <h2>A developer who never stopped asking "how does this work?"</h2>
+    </div>
+    <div class="about__grid">
+      <p class="about__text reveal">
+        I'm Thomas Peter, a final-year B.Tech Artificial Intelligence student at Bharath University
+        (2026), drawn to full-stack development because it lets me build ideas end to end — from
+        the interface someone touches to the logic running quietly behind it. I like taking things
+        apart to understand them, then putting them back together a little better.
+      </p>
+      <p class="about__text reveal">
+        My foundation in Computer Science started early at St. Bede's School, and it's carried
+        through every project since — a habit of treating every bug as a question worth answering
+        and every new tool as something worth learning properly, not just using.
+      </p>
+    </div>
+    <div class="about__stats reveal">
+      <div class="stat"><span class="stat__num" data-count="2026">0</span><span class="stat__label mono">Graduation</span></div>
+      <div class="stat"><span class="stat__num" data-count="5">0</span><span class="stat__label mono">Core Skills</span></div>
+      <div class="stat"><span class="stat__num" data-count="100">0</span><span class="stat__label mono">% Curious</span></div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education" class="section">
+    <div class="section__head reveal">
+      <p class="eyebrow mono">02 — Education</p>
+      <h2>The path so far</h2>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline__line"></div>
+
+      <div class="timeline__item reveal">
+        <div class="timeline__node"></div>
+        <div class="timeline__card">
+          <p class="timeline__date mono">2026</p>
+          <h3>B.Tech, Artificial Intelligence</h3>
+          <p class="timeline__org">Bharath University</p>
+          <p class="timeline__desc">Focused coursework in AI/ML fundamentals paired with self-driven
+            full-stack projects — where theory meets shipped code.</p>
+        </div>
+      </div>
+
+      <div class="timeline__item reveal">
+        <div class="timeline__node"></div>
+        <div class="timeline__card">
+          <p class="timeline__date mono">Foundation</p>
+          <h3>Computer Science</h3>
+          <p class="timeline__org">St. Bede's School</p>
+          <p class="timeline__desc">Where the first lines of code were written and the curiosity
+            that still drives me today first took root.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="section">
+    <div class="section__head reveal">
+      <p class="eyebrow mono">03 — Skills</p>
+      <h2>Tools I build with</h2>
+    </div>
+
+    <div class="skills__grid">
+      <div class="skill-card reveal" data-level="90">
+        <div class="skill-card__top">
+          <span class="skill-card__icon">&lt;/&gt;</span>
+          <span class="skill-card__name">HTML</span>
+        </div>
+        <div class="skill-bar"><div class="skill-bar__fill"></div></div>
+        <span class="skill-card__pct mono">90%</span>
+      </div>
+
+      <div class="skill-card reveal" data-level="85">
+        <div class="skill-card__top">
+          <span class="skill-card__icon">#</span>
+          <span class="skill-card__name">CSS</span>
+        </div>
+        <div class="skill-bar"><div class="skill-bar__fill"></div></div>
+        <span class="skill-card__pct mono">85%</span>
+      </div>
+
+      <div class="skill-card reveal" data-level="80">
+        <div class="skill-card__top">
+          <span class="skill-card__icon">{ }</span>
+          <span class="skill-card__name">JavaScript</span>
+        </div>
+        <div class="skill-bar"><div class="skill-bar__fill"></div></div>
+        <span class="skill-card__pct mono">80%</span>
+      </div>
+
+      <div class="skill-card reveal" data-level="82">
+        <div class="skill-card__top">
+          <span class="skill-card__icon">Py</span>
+          <span class="skill-card__name">Python</span>
+        </div>
+        <div class="skill-bar"><div class="skill-bar__fill"></div></div>
+        <span class="skill-card__pct mono">82%</span>
+      </div>
+
+      <div class="skill-card reveal" data-level="75">
+        <div class="skill-card__top">
+          <span class="skill-card__icon">Dj</span>
+          <span class="skill-card__name">Django</span>
+        </div>
+        <div class="skill-bar"><div class="skill-bar__fill"></div></div>
+        <span class="skill-card__pct mono">75%</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE / JOURNEY -->
+  <section id="experience" class="section">
+    <div class="section__head reveal">
+      <p class="eyebrow mono">04 — Journey</p>
+      <h2>Curious by default, learning by choice</h2>
+    </div>
+
+    <div class="journey__grid">
+      <div class="journey-card reveal">
+        <span class="journey-card__mark mono">01</span>
+        <h3>Self-Taught Foundations</h3>
+        <p>Learned HTML, CSS and JavaScript by building — breaking things, fixing them, and
+          repeating until the concepts stuck.</p>
+      </div>
+      <div class="journey-card reveal">
+        <span class="journey-card__mark mono">02</span>
+        <h3>Academic Projects</h3>
+        <p>Applied AI and programming coursework from Bharath University to real, working
+          projects rather than leaving it on paper.</p>
+      </div>
+      <div class="journey-card reveal">
+        <span class="journey-card__mark mono">03</span>
+        <h3>Full-Stack Exploration</h3>
+        <p>Went deeper into Python and Django to connect the interfaces I build with real logic
+          and data on the backend.</p>
+      </div>
+      <div class="journey-card reveal">
+        <span class="journey-card__mark mono">04</span>
+        <h3>Open to What's Next</h3>
+        <p>Actively looking for opportunities to bring this curiosity to a real team and a real
+          product.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section section--contact">
+    <div class="section__head reveal">
+      <p class="eyebrow mono">05 — Contact</p>
+      <h2>Let's build something.</h2>
+      <p class="contact__sub">Open to full-stack roles, internships, and interesting problems.
+        Reach out — I'd love to hear from you.</p>
+    </div>
+
+    <div class="contact__links reveal">
+      <a href="https://www.linkedin.com/in/thomas-peter/" target="_blank" rel="noopener noreferrer" class="social-btn">
+        <svg viewBox="0 0 24 24" fill="currentColor" class="social-btn__icon"><path d="M20.45 20.45h-3.56v-5.58c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.15 1.45-2.15 2.94v5.68H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+        <span>LinkedIn</span>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>Designed &amp; built by Thomas Peter · <span id="year"></span></p>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="Back to top">↑</button>
+
+<script src="script.js"></script>
+</body>
+</html>
