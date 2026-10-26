@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ─── SEO & META ─────────────────────────────────────────────── -->
+  <title>Deniston | AWS DevOps Engineer</title>
+  <meta name="description" content="Deniston – AWS DevOps Engineer based in Chennai, Tamil Nadu. 3+ years building reliable, automated, cost-efficient cloud infrastructure on AWS." />
+  <meta name="author" content="Deniston" />
+  <link rel="canonical" href="https://deniston.dev" /> <!-- [PLACEHOLDER: update with real domain] -->
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://deniston.dev" /> <!-- [PLACEHOLDER] -->
+  <meta property="og:title"       content="Deniston | AWS DevOps Engineer" />
+  <meta property="og:description" content="3+ years building reliable, automated, cost-efficient cloud infrastructure on AWS." />
+  <meta property="og:image"       content="https://deniston.dev/og-preview.png" /> <!-- [PLACEHOLDER] -->
+  <meta name="twitter:card"       content="summary_large_image" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☁️</text></svg>" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       NAVBAR
+  ═══════════════════════════════════════════════════════════════ -->
+  <header class="navbar" id="navbar" role="banner">
+    <nav class="nav-container" aria-label="Primary navigation">
+      <a href="#hero" class="nav-logo" aria-label="Deniston – home">
+        <span class="logo-bracket">&lt;</span>D<span class="logo-slash">/</span><span class="logo-bracket">&gt;</span>
+      </a>
+
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="#about"          class="nav-link" data-section="about">About</a></li>
+        <li><a href="#skills"         class="nav-link" data-section="skills">Skills</a></li>
+        <li><a href="#experience"     class="nav-link" data-section="experience">Experience</a></li>
+        <li><a href="#projects"       class="nav-link" data-section="projects">Projects</a></li>
+        <li><a href="#certifications" class="nav-link" data-section="certifications">Certs</a></li>
+        <li><a href="#blog"           class="nav-link" data-section="blog">Blog</a></li>
+        <li><a href="#contact"        class="nav-link" data-section="contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- Theme Toggle -->
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode" title="Toggle theme">
+          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+
+        <!-- Hamburger -->
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         HERO SECTION
+    ═══════════════════════════════════════════════════════════════ -->
+    <section class="hero" id="hero" aria-label="Hero introduction">
+      <!-- Animated background grid -->
+      <div class="hero-grid" aria-hidden="true"></div>
+      <!-- Floating cloud particles -->
+      <div class="particles" id="particles" aria-hidden="true"></div>
+
+      <div class="hero-content">
+        <!-- Status badge -->
+        <div class="status-badge" id="statusBadge">
+          <span class="status-dot"></span>
+          <span class="status-text">All systems operational</span>
+        </div>
+
+        <p class="hero-greeting mono">Hello, World! I'm</p>
+        <h1 class="hero-name">Deniston</h1>
+        <p class="hero-title">AWS DevOps Engineer</p>
+
+        <div class="hero-tagline" aria-live="polite">
+          <span class="tagline-prefix mono">$ </span>
+          <span class="tagline-text" id="typingText"></span>
+          <span class="cursor-blink" aria-hidden="true">█</span>
+        </div>
+
+        <!-- CTA Buttons -->
+        <div class="hero-ctas">
+          <a href="#projects" class="btn btn-primary">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            View Projects
+          </a>
+          <a href="deniston_resume.pdf" class="btn btn-secondary" download aria-label="Download Deniston's resume PDF">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download Resume
+          </a>
+          <a href="#contact" class="btn btn-ghost">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Contact Me
+          </a>
+        </div>
+
+        <!-- Social Links -->
+        <div class="hero-social">
+          <a href="https://github.com/deniston-dev" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile"> <!-- [PLACEHOLDER: real GitHub URL] -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          </a>
+          <a href="https://linkedin.com/in/deniston-dev" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile"> <!-- [PLACEHOLDER: real LinkedIn URL] -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="https://medium.com/@deniston-dev" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Medium blog"> <!-- [PLACEHOLDER: real Medium/Dev.to/X URL] -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
+          </a>
+          <a href="mailto:deniston@gmail.com" class="social-link" aria-label="Send email to Deniston">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Faux Terminal Card -->
+      <div class="terminal-card" aria-label="Terminal showing DevOps commands">
+        <div class="terminal-header" aria-hidden="true">
+          <span class="terminal-dot dot-red"></span>
+          <span class="terminal-dot dot-yellow"></span>
+          <span class="terminal-dot dot-green"></span>
+          <span class="terminal-title">deniston@devops:~</span>
+        </div>
+        <div class="terminal-body" id="terminalBody">
+          <!-- Lines injected by JS -->
+        </div>
+      </div>
+
+      <!-- Scroll indicator -->
+      <a href="#about" class="scroll-indicator" aria-label="Scroll to About section">
+        <span class="mono">scroll</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </a>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         ABOUT SECTION
+    ═══════════════════════════════════════════════════════════════ -->
+    <section class="section about-section" id="about" aria-labelledby="about-heading">
+      <div class="section-container">
+        <div class="section-header reveal">
+          <span class="section-label mono">01 / about_me</span>
+          <h2 id="about-heading" class="section-title">About Me</h2>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-text reveal">
+            <p class="about-bio" id="aboutBio">
+              <!-- Bio injected by JS -->
+            </p>
+            <p class="about-bio" id="aboutBio2">
+              <!-- Bio 2 injected by JS -->
+            </p>
+            <div class="about-location mono">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Chennai, Tamil Nadu, India
+            </div>
+          </div>
+
+          <div class="stats-grid reveal">
+            <div class="stat-card glass">
+              <span class="stat-number" data-target="3">0</span>
+              <span class="stat-suffix">+</span>
+              <p class="stat-label">Years of Experience</p>
+            </div>
+            <div class="stat-card glass">
+              <span class="stat-number" data-target="30">0</span>
+              <span class="stat-suffix">+</span>
+              <p class="stat-label">Projects Delivered</p>
+            </div>
+            <div class="stat-card glass">
+              <span class="stat-number" data-target="5">0</span>
+              <span class="stat-suffix"></span>
+              <p class="stat-label">Certifications Earned</p>
+            </div>
+            <div class="stat-card glass">
+              <span class="stat-number" data-target="40">0</span>
+              <span class="stat-suffix">%</span>
+              <p class="stat-label">Avg. Cost Savings</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         SKILLS SECTION
+    ═══════════════════════════════════════════════════════════════ -->
+    <section class="section skills-section" id="skills" aria-labelledby="skills-heading">
+      <div class="section-container">
+        <div class="section-header reveal">
+          <span class="section-label mono">02 / tech_stack</span>
+          <h2 id="skills-heading" class="section-title">Skills & Tools</h2>
+        </div>
+        <div class="skills-grid" id="skillsGrid">
+          <!-- Skill groups injected by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         EXPERIENCE SECTION
+    ═══════════════════════════════════════════════════════════════ -->
+    <section class="section experience-section" id="experience" aria-labelledby="exp-heading">
+      <div class="section-container">
+        <div class="section-header reveal">
+          <span class="section-label mono">03 / deployment_history</span>
+          <h2 id="exp-heading" class="section-title">Experience</h2>
+        </div>
+        <div class="timeline" id="timeline" role="list">
+          <!-- Timeline entries injected by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         PROJECTS SECTION
+    ═══════════════════════════════════════════════════════════════ -->
+    <section class="section projects-section" id="projects" aria-labelledby="proj-heading">
+      <div class="section-container">
+        <div class="section-header reveal">
+          <span class="section-label mono">04 / shipped_code</span>
+          <h2 id="proj-heading" class="section-title">Projects</h2>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="project-filters reveal" role="group" aria-label="Filter projects by category">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="iac">IaC</button>
+          <button class="filter-btn" data-filter="cicd">CI/CD</button>
+          <button class="filter-btn" data-filter="kubernetes">Kubernetes</button>
+          <button class="filter-btn" data-filter="monitoring">Monitoring</button>
+        </div>
+
+        <div class="projects-grid" id="projectsGrid">
+          <!-- Project cards injected by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         CERTIFICATIONS SECTION
+    ═══════════════════════════════════════════════════════════════ -->
+    <section class="section certs-section" id="certifications" aria-labelledby="certs-heading">
+      <div class="section-container">
+        <div class="section-header reveal">
+          <span class="section-label mono">05 / credentials</span>
+          <h2 id="certs-heading" class="section-title">Certifications</h2>
+        </div>
+        <div class="certs-grid" id="certsGrid">
+          <!-- Cert cards injected by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         BLOG SECTION
+    ═══════════════════════════════════════════════════════════════ -->
+    <section class="section blog-section" id="blog" aria-labelledby="blog-heading">
+      <div class="section-container">
+        <div class="section-header reveal">
+          <span class="section-label mono">06 / latest_posts</span>
+          <h2 id="blog-heading" class="section-title">Writing</h2>
+        </div>
+        <div class="blog-grid" id="blogGrid">
+          <!-- Blog cards injected by JS -->
+        </div>
+        <div class="blog-cta reveal">
+          <a href="https://medium.com/@deniston-dev" class="btn btn-ghost" target="_blank" rel="noopener noreferrer"> <!-- [PLACEHOLDER: real blog URL] -->
+            View all articles →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         CONTACT SECTION
+    ═══════════════════════════════════════════════════════════════ -->
+    <section class="section contact-section" id="contact" aria-labelledby="contact-heading">
+      <div class="section-container">
+        <div class="section-header reveal">
+          <span class="section-label mono">07 / get_in_touch</span>
+          <h2 id="contact-heading" class="section-title">Contact Me</h2>
+          <p class="section-subtitle">Have a project in mind? Let's build something great together.</p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Contact Info -->
+          <div class="contact-info reveal">
+            <div class="contact-item glass">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <div>
+                <p class="contact-label mono">Email</p>
+                <a href="mailto:deniston@gmail.com" class="contact-value">deniston@gmail.com</a>
+              </div>
+            </div>
+            <div class="contact-item glass">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <div>
+                <p class="contact-label mono">Location</p>
+                <span class="contact-value">Chennai, Tamil Nadu, India</span>
+              </div>
+            </div>
+            <div class="contact-item glass">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <div>
+                <p class="contact-label mono">Response Time</p>
+                <span class="contact-value">Within 24 hours</span>
+              </div>
+            </div>
+            <div class="contact-social-links">
+              <a href="https://github.com/deniston-dev"   class="social-link-lg" target="_blank" rel="noopener noreferrer" aria-label="GitHub"> <!-- [PLACEHOLDER] -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                GitHub
+              </a>
+              <a href="https://linkedin.com/in/deniston-dev" class="social-link-lg" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"> <!-- [PLACEHOLDER] -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                LinkedIn
+              </a>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <form class="contact-form glass reveal" id="contactForm" aria-label="Contact form" novalidate>
+            <div class="form-group">
+              <label for="contactName" class="form-label mono">Name</label>
+              <input type="text" id="contactName" name="name" class="form-input" placeholder="Your name" required autocomplete="name" />
+            </div>
+            <div class="form-group">
+              <label for="contactEmail" class="form-label mono">Email</label>
+              <input type="email" id="contactEmail" name="email" class="form-input" placeholder="your@email.com" required autocomplete="email" />
+            </div>
+            <div class="form-group">
+              <label for="contactSubject" class="form-label mono">Subject</label>
+              <input type="text" id="contactSubject" name="subject" class="form-input" placeholder="Project inquiry / Collaboration" required />
+            </div>
+            <div class="form-group">
+              <label for="contactMessage" class="form-label mono">Message</label>
+              <textarea id="contactMessage" name="message" class="form-textarea" placeholder="Tell me about your project..." rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary form-submit" id="contactSubmit">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              Send Message
+            </button>
+            <p class="form-note mono" id="formNote"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-container">
+      <div class="footer-top">
+        <a href="#hero" class="nav-logo footer-logo" aria-label="Back to top">
+          <span class="logo-bracket">&lt;</span>D<span class="logo-slash">/</span><span class="logo-bracket">&gt;</span>
+        </a>
+        <p class="footer-tagline mono">Built with passion. Deployed with confidence.</p>
+        <div class="footer-deploy-badge">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          <span class="mono">Deployed on AWS · S3 + CloudFront</span>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© <span id="footerYear"></span> Deniston. All rights reserved.</p>
+        <a href="#hero" class="back-to-top" aria-label="Back to top of page">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+          Back to top
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       EASTER EGG TERMINAL MODAL  (Ctrl+` or Ctrl+~)
+  ═══════════════════════════════════════════════════════════════ -->
+  <div class="easter-overlay" id="easterOverlay" role="dialog" aria-modal="true" aria-label="Secret terminal" hidden>
+    <div class="easter-terminal">
+      <div class="terminal-header">
+        <span class="terminal-dot dot-red"></span>
+        <span class="terminal-dot dot-yellow"></span>
+        <span class="terminal-dot dot-green"></span>
+        <span class="terminal-title">deniston@secret:~ &nbsp;[Ctrl+` to close]</span>
+      </div>
+      <div class="easter-body" id="easterBody" aria-live="polite">
+        <p class="mono et-intro">Welcome to Deniston's secret terminal. Type <span class="accent">help</span> for commands.</p>
+      </div>
+      <div class="easter-input-row">
+        <span class="mono">$ </span>
+        <input type="text" id="easterInput" class="easter-input mono" placeholder="type a command..." aria-label="Terminal input" autocomplete="off" spellcheck="false" />
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <!-- Primary Meta -->
+  <title>Deniston | AWS DevOps Engineer – Cloud Infrastructure & CI/CD</title>
+  <meta name="description" content="Deniston is an AWS DevOps Engineer with 4+ years of experience designing CI/CD pipelines, automating infrastructure with Terraform, and running production workloads on Kubernetes." />
+  <meta name="keywords" content="AWS DevOps Engineer, Terraform, Kubernetes, CI/CD, Cloud Infrastructure, EKS, DevSecOps, Chennai" />
+  <meta name="author" content="Deniston" />
+  <link rel="canonical" href="https://deniston.dev/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://deniston.dev/" />
+  <meta property="og:title" content="Deniston | Forward Deployed Engineer" />
+  <meta property="og:description" content="I build automated, secure, and cost-efficient cloud infrastructure that lets teams ship faster." />
+  <meta property="og:image" content="https://deniston.dev/assets/og-image.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@deniston_dev" />
+  <meta name="twitter:title" content="Deniston | Forward Deployed Engineer" />
+  <meta name="twitter:description" content="I build automated, secure, and cost-efficient cloud infrastructure that lets teams ship faster." />
+  <meta name="twitter:image" content="https://deniston.dev/assets/og-image.png" />
+
+  <!-- JSON-LD Person Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Deniston",
+    "jobTitle": "AWS DevOps Engineer",
+    "url": "https://deniston.dev",
+    "email": "deniston@example.com",
+    "sameAs": [
+      "https://linkedin.com/in/deniston",
+      "https://github.com/deniston",
+      "https://x.com/deniston_dev"
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Chennai",
+      "addressCountry": "IN"
+    },
+    "knowsAbout": ["AWS", "DevOps", "Terraform", "Kubernetes", "CI/CD", "Cloud Infrastructure"]
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ========== CUSTOM CURSOR ========== -->
+  <div class="cursor-candle" id="cursorCandle" aria-hidden="true">
+    <div class="flame">
+      <div class="flame-inner"></div>
+      <div class="flame-glow"></div>
+    </div>
+    <div class="candle-body"></div>
+  </div>
+  <div class="cursor-trail" id="cursorTrail" aria-hidden="true"></div>
+
+  <!-- ========== NAVBAR ========== -->
+  <header class="navbar" id="navbar" role="banner">
+    <nav class="nav-container" aria-label="Main navigation">
+      <a href="#hero" class="nav-logo" aria-label="Deniston – Home">
+        <span class="logo-text">D</span>
+        <span class="logo-dot"></span>
+      </a>
+
+      <ul class="nav-links" role="list" id="navLinks">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#certifications" class="nav-link">Certs</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode" aria-pressed="false">
+          <span class="theme-icon dark-icon"><i class="fa-solid fa-sun"></i></span>
+          <span class="theme-icon light-icon"><i class="fa-solid fa-moon"></i></span>
+        </button>
+        <a href="/resume/deniston_resume.pdf" class="btn btn-resume" download aria-label="Download Resume PDF">
+          <i class="fa-solid fa-download" aria-hidden="true"></i> Resume
+        </a>
+        <button class="nav-burger" id="navBurger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero" id="hero" aria-label="Hero introduction">
+    <!-- Background elements -->
+    <div class="hero-bg" aria-hidden="true">
+      <div class="grid-overlay"></div>
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+      <div class="particles" id="particles"></div>
+    </div>
+
+    <div class="hero-content container">
+      <div class="hero-text" data-reveal="left">
+        <div class="hero-badge">
+          <span class="badge-dot pulse" aria-hidden="true"></span>
+          <span>Open to Work</span>
+        </div>
+
+        <h1 class="hero-name">
+          Hi, I'm <span class="gradient-text">Deniston</span>
+        </h1>
+        <h2 class="hero-title">Forward Deployed Engineer</h2>
+        <p class="hero-tagline">I build automated, secure, and cost-efficient cloud infrastructure that lets teams ship faster.</p>
+
+        <!-- Terminal -->
+        <div class="terminal" role="region" aria-label="Interactive terminal">
+          <div class="terminal-bar" aria-hidden="true">
+            <span class="t-dot t-red"></span>
+            <span class="t-dot t-yellow"></span>
+            <span class="t-dot t-green"></span>
+            <span class="terminal-title">deniston@aws-devops ~ zsh</span>
+          </div>
+          <div class="terminal-body" id="terminalBody" aria-live="polite">
+            <div class="terminal-line">
+              <span class="t-prompt">deniston@cloud</span><span class="t-at">:</span><span class="t-dir">~</span><span class="t-dollar">$</span>
+              <span class="t-cmd" id="typingText"></span><span class="t-cursor" id="termCursor">█</span>
+            </div>
+            <div class="terminal-output" id="termOutput"></div>
+          </div>
+          <div class="terminal-hint" aria-label="Terminal hint">Type <kbd>help</kbd> and press <kbd>Enter</kbd> to explore</div>
+          <div class="terminal-input-row">
+            <span class="t-prompt" aria-hidden="true">$</span>
+            <input type="text" id="termInput" class="terminal-input" placeholder="type a command..." aria-label="Terminal command input" autocomplete="off" spellcheck="false" />
+          </div>
+        </div>
+
+        <div class="hero-ctas">
+          <a href="#projects" class="btn btn-primary">
+            <i class="fa-solid fa-rocket" aria-hidden="true"></i> View Projects
+          </a>
+          <a href="#contact" class="btn btn-secondary">
+            <i class="fa-solid fa-envelope" aria-hidden="true"></i> Contact Me
+          </a>
+        </div>
+
+        <div class="hero-socials">
+          <a href="https://linkedin.com/in/deniston" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn profile">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+          <a href="https://github.com/deniston" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="GitHub profile">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a href="https://x.com/deniston_dev" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Twitter/X profile">
+            <i class="fa-brands fa-x-twitter"></i>
+          </a>
+          <a href="mailto:deniston@example.com" class="social-icon" aria-label="Send email">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- CI/CD Pipeline Graphic -->
+      <div class="hero-visual" data-reveal="right" aria-label="CI/CD pipeline visualization">
+        <div class="pipeline-container">
+          <h3 class="pipeline-label">CI/CD Pipeline</h3>
+          <div class="pipeline" role="img" aria-label="Code to Build to Test to Deploy pipeline">
+            <div class="pipeline-step active" data-step="0">
+              <div class="step-icon"><i class="fa-solid fa-code"></i></div>
+              <span class="step-name">Code</span>
+              <div class="step-detail">git push</div>
+            </div>
+            <div class="pipeline-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+            <div class="pipeline-step" data-step="1">
+              <div class="step-icon"><i class="fa-solid fa-hammer"></i></div>
+              <span class="step-name">Build</span>
+              <div class="step-detail">Docker build</div>
+            </div>
+            <div class="pipeline-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+            <div class="pipeline-step" data-step="2">
+              <div class="step-icon"><i class="fa-solid fa-vial"></i></div>
+              <span class="step-name">Test</span>
+              <div class="step-detail">Unit + Scan</div>
+            </div>
+            <div class="pipeline-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+            <div class="pipeline-step" data-step="3">
+              <div class="step-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+              <span class="step-name">Deploy</span>
+              <div class="step-detail">ArgoCD → EKS</div>
+            </div>
+          </div>
+          <div class="pipeline-progress">
+            <div class="progress-bar" id="pipelineBar"></div>
+          </div>
+          <div class="pipeline-metrics">
+            <div class="metric">
+              <span class="metric-val" id="deployTime">8m</span>
+              <span class="metric-key">Deploy Time</span>
+            </div>
+            <div class="metric">
+              <span class="metric-val">99.9%</span>
+              <span class="metric-key">Uptime</span>
+            </div>
+            <div class="metric">
+              <span class="metric-val">0</span>
+              <span class="metric-key">Failed Deploys</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <a href="#about" class="scroll-indicator" aria-label="Scroll to About section">
+      <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+      <span>Scroll</span>
+    </a>
+  </section>
+
+  <!-- ========== ABOUT ========== -->
+  <section class="section about-section" id="about" aria-labelledby="about-heading">
+    <div class="container">
+      <div class="section-header" data-reveal="up">
+        <span class="section-tag">// about me</span>
+        <h2 id="about-heading" class="section-title">Who I Am</h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-photo-wrap" data-reveal="left">
+          <div class="photo-frame">
+            <img src="assets/profile.png" alt="Deniston – AWS DevOps Engineer portrait" class="profile-img" loading="lazy" width="400" height="400" />
+            <div class="photo-glow" aria-hidden="true"></div>
+          </div>
+          <div class="photo-badge" aria-label="Open to work status">
+            <span class="badge-dot pulse"></span> Open to Work
+          </div>
+        </div>
+
+        <div class="about-content" data-reveal="right">
+          <p class="about-bio">
+            AWS DevOps Engineer with <strong>4+ years</strong> of experience designing CI/CD pipelines, automating infrastructure with Terraform, and running production workloads on Kubernetes. I enjoy turning slow, manual release processes into reliable, one-click deployments.
+          </p>
+          <p class="about-bio">
+            Outside work, I write about cloud cost optimization and contribute to open-source DevOps tooling.
+          </p>
+
+          <div class="about-stats" role="list" aria-label="Key statistics">
+            <div class="stat-card" role="listitem" data-reveal="up" data-delay="0">
+              <div class="stat-number" data-count="4">0</div>
+              <div class="stat-plus">+</div>
+              <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-card" role="listitem" data-reveal="up" data-delay="100">
+              <div class="stat-number" data-count="25">0</div>
+              <div class="stat-plus">+</div>
+              <div class="stat-label">Deployments Automated</div>
+            </div>
+            <div class="stat-card" role="listitem" data-reveal="up" data-delay="200">
+              <div class="stat-number" data-count="40">0</div>
+              <div class="stat-plus">%</div>
+              <div class="stat-label">Avg. Cost Reduction</div>
+            </div>
+            <div class="stat-card" role="listitem" data-reveal="up" data-delay="300">
+              <div class="stat-number" data-count="4">0</div>
+              <div class="stat-plus"></div>
+              <div class="stat-label">AWS Certifications</div>
+            </div>
+          </div>
+
+          <div class="about-tags">
+            <span class="tag"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Chennai, India (IST)</span>
+            <span class="tag"><i class="fa-solid fa-clock" aria-hidden="true"></i> UTC+5:30</span>
+            <span class="tag"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Open to Remote</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SKILLS ========== -->
+  <section class="section skills-section" id="skills" aria-labelledby="skills-heading">
+    <div class="container">
+      <div class="section-header" data-reveal="up">
+        <span class="section-tag">// tech stack</span>
+        <h2 id="skills-heading" class="section-title">Skills & Tools</h2>
+      </div>
+
+      <div class="skills-grid">
+
+        <div class="skill-card" data-reveal="up" data-delay="0">
+          <div class="skill-card-header">
+            <div class="skill-icon"><i class="fa-brands fa-aws"></i></div>
+            <h3 class="skill-category">Cloud (AWS)</h3>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">EC2</span>
+            <span class="skill-tag">S3</span>
+            <span class="skill-tag">VPC</span>
+            <span class="skill-tag">IAM</span>
+            <span class="skill-tag">RDS</span>
+            <span class="skill-tag">Lambda</span>
+            <span class="skill-tag">EKS</span>
+            <span class="skill-tag">ECS</span>
+            <span class="skill-tag">CloudFront</span>
+            <span class="skill-tag">Route 53</span>
+            <span class="skill-tag">CloudWatch</span>
+            <span class="skill-tag">Secrets Manager</span>
+          </div>
+        </div>
+
+        <div class="skill-card" data-reveal="up" data-delay="80">
+          <div class="skill-card-header">
+            <div class="skill-icon"><i class="fa-solid fa-infinity"></i></div>
+            <h3 class="skill-category">CI/CD</h3>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">GitHub Actions</span>
+            <span class="skill-tag">Jenkins</span>
+            <span class="skill-tag">GitLab CI</span>
+            <span class="skill-tag">CodePipeline</span>
+            <span class="skill-tag">ArgoCD</span>
+          </div>
+        </div>
+
+        <div class="skill-card" data-reveal="up" data-delay="160">
+          <div class="skill-card-header">
+            <div class="skill-icon"><i class="fa-solid fa-layer-group"></i></div>
+            <h3 class="skill-category">Infrastructure as Code</h3>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">Terraform</span>
+            <span class="skill-tag">CloudFormation</span>
+            <span class="skill-tag">Ansible</span>
+          </div>
+        </div>
+
+        <div class="skill-card" data-reveal="up" data-delay="240">
+          <div class="skill-card-header">
+            <div class="skill-icon"><i class="fa-brands fa-docker"></i></div>
+            <h3 class="skill-category">Containers & Orchestration</h3>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">Kubernetes</span>
+            <span class="skill-tag">Helm</span>
+            <span class="skill-tag">Amazon ECR</span>
+          </div>
+        </div>
+
+        <div class="skill-card" data-reveal="up" data-delay="320">
+          <div class="skill-card-header">
+            <div class="skill-icon"><i class="fa-solid fa-chart-line"></i></div>
+            <h3 class="skill-category">Monitoring & Logging</h3>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">Prometheus</span>
+            <span class="skill-tag">Grafana</span>
+            <span class="skill-tag">CloudWatch</span>
+            <span class="skill-tag">ELK Stack</span>
+            <span class="skill-tag">Datadog</span>
+          </div>
+        </div>
+
+        <div class="skill-card" data-reveal="up" data-delay="400">
+          <div class="skill-card-header">
+            <div class="skill-icon"><i class="fa-solid fa-terminal"></i></div>
+            <h3 class="skill-category">Scripting</h3>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">Bash</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">YAML</span>
+          </div>
+        </div>
+
+        <div class="skill-card" data-reveal="up" data-delay="480">
+          <div class="skill-card-header">
+            <div class="skill-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <h3 class="skill-category">Security (DevSecOps)</h3>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">IAM Best Practices</span>
+            <span class="skill-tag">Trivy</span>
+            <span class="skill-tag">SonarQube</span>
+            <span class="skill-tag">AWS WAF</span>
+            <span class="skill-tag">KMS</span>
+          </div>
+        </div>
+
+        <div class="skill-card" data-reveal="up" data-delay="560">
+          <div class="skill-card-header">
+            <div class="skill-icon"><i class="fa-solid fa-wrench"></i></div>
+            <h3 class="skill-category">Tools & Platforms</h3>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">Linux</span>
+            <span class="skill-tag">Nginx</span>
+            <span class="skill-tag">Jira</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== EXPERIENCE ========== -->
+  <section class="section experience-section" id="experience" aria-labelledby="exp-heading">
+    <div class="container">
+      <div class="section-header" data-reveal="up">
+        <span class="section-tag">// work history</span>
+        <h2 id="exp-heading" class="section-title">Experience</h2>
+      </div>
+
+      <div class="timeline" role="list" aria-label="Work experience timeline">
+
+        <div class="timeline-item" role="listitem" data-reveal="left">
+          <div class="timeline-dot" aria-hidden="true"><span></span></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div>
+                <h3 class="company-name">CloudNova Technologies</h3>
+                <p class="role-title">Senior DevOps Engineer</p>
+              </div>
+              <div class="timeline-meta">
+                <span class="timeline-dates"><i class="fa-regular fa-calendar" aria-hidden="true"></i> Jan 2024 – Present</span>
+                <span class="timeline-badge current">Current</span>
+              </div>
+            </div>
+            <ul class="achievement-list" aria-label="Achievements at CloudNova Technologies">
+              <li><span class="ach-icon">🚀</span> Migrated 15+ microservices from EC2 to Amazon EKS, cutting deployment time from <strong>45 min → 8 min</strong></li>
+              <li><span class="ach-icon">🏗️</span> Built reusable Terraform modules adopted across <strong>6 product teams</strong></li>
+              <li><span class="ach-icon">💰</span> Reduced monthly AWS spend by <strong>38%</strong> through right-sizing and Savings Plans</li>
+              <li><span class="ach-icon">📊</span> Set up Prometheus + Grafana monitoring, reducing MTTR by <strong>50%</strong></li>
+            </ul>
+            <div class="timeline-techs">
+              <span class="tech-pill">EKS</span>
+              <span class="tech-pill">Terraform</span>
+              <span class="tech-pill">Prometheus</span>
+              <span class="tech-pill">Grafana</span>
+              <span class="tech-pill">AWS Cost Optimization</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item" role="listitem" data-reveal="left" data-delay="100">
+          <div class="timeline-dot" aria-hidden="true"><span></span></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div>
+                <h3 class="company-name">BrightStack Solutions</h3>
+                <p class="role-title">DevOps Engineer</p>
+              </div>
+              <div class="timeline-meta">
+                <span class="timeline-dates"><i class="fa-regular fa-calendar" aria-hidden="true"></i> Jun 2022 – Dec 2023</span>
+              </div>
+            </div>
+            <ul class="achievement-list" aria-label="Achievements at BrightStack Solutions">
+              <li><span class="ach-icon">⚙️</span> Designed CI/CD pipelines using GitHub Actions and AWS CodePipeline</li>
+              <li><span class="ach-icon">☁️</span> Automated environment provisioning with CloudFormation</li>
+              <li><span class="ach-icon">🔍</span> Implemented centralized logging with CloudWatch and the ELK stack</li>
+              <li><span class="ach-icon">🔒</span> Introduced DevSecOps checks (Trivy, SonarQube) into every pipeline</li>
+            </ul>
+            <div class="timeline-techs">
+              <span class="tech-pill">GitHub Actions</span>
+              <span class="tech-pill">CodePipeline</span>
+              <span class="tech-pill">CloudFormation</span>
+              <span class="tech-pill">ELK Stack</span>
+              <span class="tech-pill">Trivy</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item" role="listitem" data-reveal="left" data-delay="200">
+          <div class="timeline-dot" aria-hidden="true"><span></span></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div>
+                <h3 class="company-name">Zenith Infotech</h3>
+                <p class="role-title">Junior Cloud Engineer</p>
+              </div>
+              <div class="timeline-meta">
+                <span class="timeline-dates"><i class="fa-regular fa-calendar" aria-hidden="true"></i> Jul 2021 – May 2022</span>
+              </div>
+            </div>
+            <ul class="achievement-list" aria-label="Achievements at Zenith Infotech">
+              <li><span class="ach-icon">🖥️</span> Managed EC2, RDS, S3, and VPC resources for <strong>20+ client workloads</strong></li>
+              <li><span class="ach-icon">📜</span> Wrote Bash and Python scripts to automate backups and patching</li>
+            </ul>
+            <div class="timeline-techs">
+              <span class="tech-pill">EC2</span>
+              <span class="tech-pill">RDS</span>
+              <span class="tech-pill">S3</span>
+              <span class="tech-pill">VPC</span>
+              <span class="tech-pill">Bash</span>
+              <span class="tech-pill">Python</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PROJECTS ========== -->
+  <section class="section projects-section" id="projects" aria-labelledby="projects-heading">
+    <div class="container">
+      <div class="section-header" data-reveal="up">
+        <span class="section-tag">// what I've built</span>
+        <h2 id="projects-heading" class="section-title">Projects</h2>
+      </div>
+
+      <div class="projects-grid">
+
+        <!-- Project 1 -->
+        <article class="project-card featured" data-reveal="up" data-delay="0" aria-label="Project: Multi-Tier AWS Infrastructure with Terraform">
+          <div class="project-card-inner">
+            <div class="project-img-wrap">
+              <img src="assets/arch_diagram.png" alt="AWS 3-tier architecture diagram showing VPC, ALB, Auto Scaling, and RDS" class="project-img" loading="lazy" width="600" height="400" />
+              <div class="project-overlay">
+                <button class="btn-case-study" data-project="0" aria-label="View case study for Multi-Tier AWS Infrastructure">
+                  <i class="fa-solid fa-expand"></i> Case Study
+                </button>
+              </div>
+            </div>
+            <div class="project-content">
+              <div class="project-header">
+                <span class="featured-badge">⭐ Featured</span>
+                <div class="project-links">
+                  <a href="https://github.com/deniston/terraform-aws-3tier" target="_blank" rel="noopener noreferrer" class="icon-link" aria-label="GitHub repository for Terraform 3-tier project">
+                    <i class="fa-brands fa-github"></i>
+                  </a>
+                </div>
+              </div>
+              <h3 class="project-title">Multi-Tier AWS Infrastructure with Terraform</h3>
+              <p class="project-desc">Fully automated 3-tier architecture (VPC, ALB, Auto Scaling, RDS) with remote state and reusable modules. Production-grade IaC with zero manual intervention.</p>
+              <div class="project-tech">
+                <span class="tech-tag">Terraform</span>
+                <span class="tech-tag">AWS VPC</span>
+                <span class="tech-tag">ALB</span>
+                <span class="tech-tag">Auto Scaling</span>
+                <span class="tech-tag">RDS</span>
+                <span class="tech-tag">S3</span>
+                <span class="tech-tag">DynamoDB</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="project-card" data-reveal="up" data-delay="100" aria-label="Project: CI/CD Pipeline for Microservices on EKS">
+          <div class="project-card-inner">
+            <div class="project-img-wrap project-img-cicd">
+              <div class="cicd-visual" aria-hidden="true">
+                <div class="cicd-stage"><i class="fa-brands fa-github"></i><span>Push</span></div>
+                <div class="cicd-arrow">→</div>
+                <div class="cicd-stage"><i class="fa-brands fa-docker"></i><span>Build</span></div>
+                <div class="cicd-arrow">→</div>
+                <div class="cicd-stage"><i class="fa-solid fa-vial"></i><span>Scan</span></div>
+                <div class="cicd-arrow">→</div>
+                <div class="cicd-stage deploy"><i class="fa-solid fa-dharmachakra"></i><span>Deploy</span></div>
+              </div>
+            </div>
+            <div class="project-content">
+              <div class="project-header">
+                <div class="project-links">
+                  <a href="https://github.com/deniston/eks-gitops-pipeline" target="_blank" rel="noopener noreferrer" class="icon-link" aria-label="GitHub repository for EKS GitOps pipeline">
+                    <i class="fa-brands fa-github"></i>
+                  </a>
+                </div>
+              </div>
+              <h3 class="project-title">CI/CD Pipeline for Microservices on EKS</h3>
+              <p class="project-desc">End-to-end GitOps pipeline with automated build, scan, test, and deploy using GitHub Actions and ArgoCD on Amazon EKS.</p>
+              <div class="project-tech">
+                <span class="tech-tag">EKS</span>
+                <span class="tech-tag">Docker</span>
+                <span class="tech-tag">Helm</span>
+                <span class="tech-tag">ArgoCD</span>
+                <span class="tech-tag">GitHub Actions</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="project-card" data-reveal="up" data-delay="200" aria-label="Project: Serverless Cost Monitoring Dashboard">
+          <div class="project-card-inner">
+            <div class="project-img-wrap project-img-cost">
+              <div class="cost-visual" aria-hidden="true">
+                <div class="cost-bars">
+                  <div class="bar" style="height:80%"><span>$820</span></div>
+                  <div class="bar" style="height:95%"><span>$960</span></div>
+                  <div class="bar" style="height:60%"><span>$590</span></div>
+                  <div class="bar alert-bar" style="height:105%"><span>$1.1k</span></div>
+                  <div class="bar" style="height:50%"><span>$480</span></div>
+                </div>
+                <div class="cost-label">Daily AWS Spend · <span class="alert-text">Alert sent via SNS</span></div>
+              </div>
+            </div>
+            <div class="project-content">
+              <div class="project-header">
+                <div class="project-links">
+                  <a href="https://github.com/deniston/aws-cost-monitor" target="_blank" rel="noopener noreferrer" class="icon-link" aria-label="GitHub repository for AWS cost monitor">
+                    <i class="fa-brands fa-github"></i>
+                  </a>
+                </div>
+              </div>
+              <h3 class="project-title">Serverless Cost Monitoring Dashboard</h3>
+              <p class="project-desc">Lambda-based tool that tracks daily AWS spend and sends Slack alerts when budgets are exceeded. Automated cost governance at scale.</p>
+              <div class="project-tech">
+                <span class="tech-tag">Lambda</span>
+                <span class="tech-tag">EventBridge</span>
+                <span class="tech-tag">Cost Explorer API</span>
+                <span class="tech-tag">SNS</span>
+                <span class="tech-tag">Python</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 4 -->
+        <article class="project-card" data-reveal="up" data-delay="300" aria-label="Project: Observability Stack with Prometheus and Grafana">
+          <div class="project-card-inner">
+            <div class="project-img-wrap project-img-obs">
+              <div class="obs-visual" aria-hidden="true">
+                <div class="obs-graph">
+                  <svg viewBox="0 0 200 80" width="100%" height="80" aria-hidden="true">
+                    <defs>
+                      <linearGradient id="obsGrad" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#FF9900" stop-opacity="0.4"/>
+                        <stop offset="100%" stop-color="#FF9900" stop-opacity="0"/>
+                      </linearGradient>
+                    </defs>
+                    <path d="M0,60 C20,55 30,40 50,35 C70,30 80,50 100,45 C120,40 130,20 150,15 C170,10 180,25 200,20 L200,80 L0,80 Z" fill="url(#obsGrad)"/>
+                    <path d="M0,60 C20,55 30,40 50,35 C70,30 80,50 100,45 C120,40 130,20 150,15 C170,10 180,25 200,20" fill="none" stroke="#FF9900" stroke-width="2"/>
+                  </svg>
+                </div>
+                <div class="obs-labels">
+                  <span class="obs-tag">SLO: 99.9%</span>
+                  <span class="obs-tag">P99: 145ms</span>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <div class="project-header">
+                <div class="project-links">
+                  <a href="https://github.com/deniston/k8s-observability" target="_blank" rel="noopener noreferrer" class="icon-link" aria-label="GitHub repository for K8s observability stack">
+                    <i class="fa-brands fa-github"></i>
+                  </a>
+                </div>
+              </div>
+              <h3 class="project-title">Observability Stack with Prometheus & Grafana</h3>
+              <p class="project-desc">Kubernetes monitoring setup with custom dashboards and alerting rules for SLO tracking and incident response automation.</p>
+              <div class="project-tech">
+                <span class="tech-tag">Prometheus</span>
+                <span class="tech-tag">Grafana</span>
+                <span class="tech-tag">Alertmanager</span>
+                <span class="tech-tag">Kubernetes</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PROJECT MODAL ========== -->
+  <div class="modal-overlay" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+    <div class="modal">
+      <button class="modal-close" id="modalClose" aria-label="Close case study modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- ========== CERTIFICATIONS & EDUCATION ========== -->
+  <section class="section certs-section" id="certifications" aria-labelledby="certs-heading">
+    <div class="container">
+      <div class="section-header" data-reveal="up">
+        <span class="section-tag">// credentials</span>
+        <h2 id="certs-heading" class="section-title">Certifications & Education</h2>
+      </div>
+
+      <div class="certs-grid">
+
+        <div class="cert-card" data-reveal="up" data-delay="0">
+          <div class="cert-badge" aria-hidden="true">
+            <i class="fa-brands fa-aws"></i>
+          </div>
+          <div class="cert-info">
+            <h3 class="cert-name">AWS Certified Solutions Architect</h3>
+            <p class="cert-level">Associate · 2023</p>
+            <a href="https://aws.amazon.com/certification/" target="_blank" rel="noopener noreferrer" class="cert-verify" aria-label="Verify AWS Solutions Architect certification">
+              Verify <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="cert-card" data-reveal="up" data-delay="100">
+          <div class="cert-badge" aria-hidden="true">
+            <i class="fa-brands fa-aws"></i>
+          </div>
+          <div class="cert-info">
+            <h3 class="cert-name">AWS Certified DevOps Engineer</h3>
+            <p class="cert-level">Professional · 2024</p>
+            <a href="https://aws.amazon.com/certification/" target="_blank" rel="noopener noreferrer" class="cert-verify" aria-label="Verify AWS DevOps Engineer Professional certification">
+              Verify <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="cert-card" data-reveal="up" data-delay="200">
+          <div class="cert-badge terraform-badge" aria-hidden="true">
+            <i class="fa-solid fa-cubes"></i>
+          </div>
+          <div class="cert-info">
+            <h3 class="cert-name">HashiCorp Terraform Associate</h3>
+            <p class="cert-level">Certified · 2023</p>
+            <a href="https://www.hashicorp.com/certification/" target="_blank" rel="noopener noreferrer" class="cert-verify" aria-label="Verify Terraform Associate certification">
+              Verify <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="cert-card" data-reveal="up" data-delay="300">
+          <div class="cert-badge k8s-badge" aria-hidden="true">
+            <i class="fa-solid fa-dharmachakra"></i>
+          </div>
+          <div class="cert-info">
+            <h3 class="cert-name">Certified Kubernetes Administrator</h3>
+            <p class="cert-level">CKA · 2024</p>
+            <a href="https://www.cncf.io/certification/cka/" target="_blank" rel="noopener noreferrer" class="cert-verify" aria-label="Verify CKA certification">
+              Verify <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Education -->
+      <div class="education-wrap" data-reveal="up">
+        <h3 class="edu-heading">Education</h3>
+        <div class="edu-card">
+          <div class="edu-icon" aria-hidden="true"><i class="fa-solid fa-graduation-cap"></i></div>
+          <div class="edu-info">
+            <h4 class="edu-degree">B.E. Computer Science and Engineering</h4>
+            <p class="edu-inst">Anna University, Chennai</p>
+            <p class="edu-year">Graduated 2021</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== BLOG HIGHLIGHTS ========== -->
+  <section class="section blog-section" id="blog" aria-labelledby="blog-heading">
+    <div class="container">
+      <div class="section-header" data-reveal="up">
+        <span class="section-tag">// writings</span>
+        <h2 id="blog-heading" class="section-title">Blog & Highlights</h2>
+      </div>
+
+      <div class="blog-grid">
+        <article class="blog-card" data-reveal="up" data-delay="0">
+          <div class="blog-tag-row"><span class="blog-category">Cost Optimization</span></div>
+          <h3 class="blog-title">How I Cut AWS Bills by 40% Using Right-Sizing and Savings Plans</h3>
+          <p class="blog-excerpt">A practical walkthrough of the analysis, tooling, and decisions that reduced our monthly AWS spend — without sacrificing performance.</p>
+          <div class="blog-meta">
+            <span><i class="fa-regular fa-calendar" aria-hidden="true"></i> Oct 2024</span>
+            <a href="#" class="blog-read-more" aria-label="Read article about cutting AWS bills">Read more →</a>
+          </div>
+        </article>
+
+        <article class="blog-card" data-reveal="up" data-delay="100">
+          <div class="blog-tag-row"><span class="blog-category">GitOps</span></div>
+          <h3 class="blog-title">GitOps with ArgoCD on EKS: A Production Setup Guide</h3>
+          <p class="blog-excerpt">Step-by-step guide to setting up a production-grade GitOps workflow with ArgoCD, Helm, and GitHub Actions on Amazon EKS.</p>
+          <div class="blog-meta">
+            <span><i class="fa-regular fa-calendar" aria-hidden="true"></i> Aug 2024</span>
+            <a href="#" class="blog-read-more" aria-label="Read article about GitOps with ArgoCD">Read more →</a>
+          </div>
+        </article>
+
+        <article class="blog-card" data-reveal="up" data-delay="200">
+          <div class="blog-tag-row"><span class="blog-category">DevSecOps</span></div>
+          <h3 class="blog-title">Embedding Security into Every CI/CD Pipeline with Trivy & SonarQube</h3>
+          <p class="blog-excerpt">How to shift security left by integrating container scanning and code analysis into your pipeline without slowing down delivery.</p>
+          <div class="blog-meta">
+            <span><i class="fa-regular fa-calendar" aria-hidden="true"></i> Jun 2024</span>
+            <a href="#" class="blog-read-more" aria-label="Read article about DevSecOps in pipelines">Read more →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT ========== -->
+  <section class="section contact-section" id="contact" aria-labelledby="contact-heading">
+    <div class="container">
+      <div class="section-header" data-reveal="up">
+        <span class="section-tag">// get in touch</span>
+        <h2 id="contact-heading" class="section-title">Contact Me</h2>
+      </div>
+
+      <div class="contact-grid">
+
+        <div class="contact-info" data-reveal="left">
+          <p class="contact-intro">I'm currently <strong>open to new opportunities</strong>. Whether you have a project, a role, or just want to chat cloud — I'd love to hear from you.</p>
+
+          <div class="contact-items">
+            <a href="mailto:deniston@example.com" class="contact-item" aria-label="Send email to deniston@example.com">
+              <div class="contact-item-icon"><i class="fa-solid fa-envelope"></i></div>
+              <div>
+                <div class="contact-item-label">Email</div>
+                <div class="contact-item-val">deniston@example.com</div>
+              </div>
+            </a>
+            <a href="https://linkedin.com/in/deniston" target="_blank" rel="noopener noreferrer" class="contact-item" aria-label="LinkedIn profile">
+              <div class="contact-item-icon"><i class="fa-brands fa-linkedin-in"></i></div>
+              <div>
+                <div class="contact-item-label">LinkedIn</div>
+                <div class="contact-item-val">linkedin.com/in/deniston</div>
+              </div>
+            </a>
+            <a href="https://github.com/deniston" target="_blank" rel="noopener noreferrer" class="contact-item" aria-label="GitHub profile">
+              <div class="contact-item-icon"><i class="fa-brands fa-github"></i></div>
+              <div>
+                <div class="contact-item-label">GitHub</div>
+                <div class="contact-item-val">github.com/deniston</div>
+              </div>
+            </a>
+            <div class="contact-item">
+              <div class="contact-item-icon"><i class="fa-solid fa-location-dot"></i></div>
+              <div>
+                <div class="contact-item-label">Location</div>
+                <div class="contact-item-val">Chennai, India (IST, UTC+5:30)</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="availability-badge" role="status" aria-live="polite">
+            <span class="badge-dot pulse"></span>
+            <span>Available for new opportunities</span>
+          </div>
+        </div>
+
+        <div class="contact-form-wrap" data-reveal="right">
+          <form class="contact-form" id="contactForm" novalidate aria-label="Contact form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contactName" class="form-label">Name</label>
+                <input type="text" id="contactName" name="name" class="form-input" placeholder="Your name" required autocomplete="name" aria-required="true" />
+                <span class="form-error" role="alert" aria-live="polite"></span>
+              </div>
+              <div class="form-group">
+                <label for="contactEmail" class="form-label">Email</label>
+                <input type="email" id="contactEmail" name="email" class="form-input" placeholder="your@email.com" required autocomplete="email" aria-required="true" />
+                <span class="form-error" role="alert" aria-live="polite"></span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="contactSubject" class="form-label">Subject</label>
+              <input type="text" id="contactSubject" name="subject" class="form-input" placeholder="What's this about?" required aria-required="true" />
+              <span class="form-error" role="alert" aria-live="polite"></span>
+            </div>
+            <div class="form-group">
+              <label for="contactMessage" class="form-label">Message</label>
+              <textarea id="contactMessage" name="message" class="form-input form-textarea" placeholder="Tell me about your project or opportunity..." rows="5" required aria-required="true"></textarea>
+              <span class="form-error" role="alert" aria-live="polite"></span>
+            </div>
+            <button type="submit" class="btn btn-primary btn-submit" id="submitBtn">
+              <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+              <span class="btn-text">Send Message</span>
+              <span class="btn-loading" hidden><i class="fa-solid fa-spinner fa-spin"></i> Sending…</span>
+            </button>
+            <div class="form-success" id="formSuccess" hidden role="alert">
+              <i class="fa-solid fa-circle-check"></i> Message sent! I'll get back to you soon.
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="#hero" class="nav-logo footer-logo" aria-label="Back to top">
+          <span class="logo-text">D</span><span class="logo-dot"></span>
+        </a>
+        <p class="footer-tagline">Building cloud infrastructure that scales.</p>
+      </div>
+
+      <div class="footer-links" role="list" aria-label="Footer navigation">
+        <a href="#about" class="footer-link" role="listitem">About</a>
+        <a href="#skills" class="footer-link" role="listitem">Skills</a>
+        <a href="#projects" class="footer-link" role="listitem">Projects</a>
+        <a href="#contact" class="footer-link" role="listitem">Contact</a>
+      </div>
+
+      <div class="footer-socials">
+        <a href="https://linkedin.com/in/deniston" target="_blank" rel="noopener noreferrer" class="social-icon sm" aria-label="LinkedIn">
+          <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+        <a href="https://github.com/deniston" target="_blank" rel="noopener noreferrer" class="social-icon sm" aria-label="GitHub">
+          <i class="fa-brands fa-github"></i>
+        </a>
+        <a href="https://x.com/deniston_dev" target="_blank" rel="noopener noreferrer" class="social-icon sm" aria-label="Twitter/X">
+          <i class="fa-brands fa-x-twitter"></i>
+        </a>
+      </div>
+
+      <p class="footer-copy">
+        © 2024 Deniston. Built with <span aria-label="love">❤️</span> using HTML, CSS & JS.
+        <br />
+        <span class="footer-tech">Powered by AWS · Deployed via CI/CD</span>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <i class="fa-solid fa-chevron-up"></i>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
