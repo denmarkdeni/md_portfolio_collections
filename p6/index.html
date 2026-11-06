@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Deni Raj – UI/UX Designer & Product Designer from Chennai, India. Crafting intuitive, human-centered digital products."/>
+  <title>Deni Raj | UI/UX Designer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- ===== CANVAS OVERLAY (Sand particles) ===== -->
+<canvas id="sand-canvas" aria-hidden="true"></canvas>
+
+<!-- ===== CUSTOM CAMEL CURSOR ===== -->
+<div id="custom-cursor" aria-hidden="true">
+  <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Neck -->
+    <path d="M22 42 Q18 30 20 18 Q22 10 28 8 Q34 6 36 14 Q38 20 34 30 Q32 36 30 42Z" fill="#8B5A2B"/>
+    <!-- Head -->
+    <ellipse cx="30" cy="20" rx="13" ry="11" fill="#C99A4B"/>
+    <!-- Snout -->
+    <path d="M36 24 Q44 26 44 30 Q44 34 38 34 Q32 34 30 30Z" fill="#C99A4B"/>
+    <ellipse cx="38" cy="31" rx="2" ry="1.2" fill="#6B3A1A" opacity="0.5"/>
+    <ellipse cx="43" cy="31" rx="2" ry="1.2" fill="#6B3A1A" opacity="0.5"/>
+    <!-- Eye -->
+    <circle cx="24" cy="18" r="3.5" fill="#3A1A00"/>
+    <circle cx="23" cy="17" r="1" fill="#fff" opacity="0.7"/>
+    <!-- Ear -->
+    <ellipse cx="21" cy="11" rx="4" ry="6" fill="#8B5A2B" transform="rotate(-20 21 11)"/>
+    <ellipse cx="21" cy="11" rx="2.5" ry="4" fill="#E8C27A" transform="rotate(-20 21 11)"/>
+    <!-- Eyelash -->
+    <path d="M21 14 Q22 12 24 13" stroke="#3A1A00" stroke-width="1" fill="none" stroke-linecap="round"/>
+  </svg>
+</div>
+
+<!-- ===== NAVBAR ===== -->
+<header id="navbar" role="banner">
+  <nav class="nav-container" aria-label="Main navigation">
+    <a href="#home" class="nav-logo" aria-label="Deni Raj – back to top">
+      <span class="logo-text">Deni.</span>
+      <!-- Tiny cactus -->
+      <svg class="logo-cactus" viewBox="0 0 18 26" fill="none" aria-hidden="true">
+        <rect x="7" y="5" width="4" height="18" rx="2" fill="#2E7D74"/>
+        <rect x="1" y="10" width="6" height="3" rx="1.5" fill="#2E7D74"/>
+        <rect x="1" y="7" width="3" height="6" rx="1.5" fill="#2E7D74"/>
+        <rect x="11" y="13" width="6" height="3" rx="1.5" fill="#2E7D74"/>
+        <rect x="14" y="10" width="3" height="6" rx="1.5" fill="#2E7D74"/>
+      </svg>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="#home"       class="nav-link active" data-section="home">Home</a></li>
+      <li><a href="#about"      class="nav-link" data-section="about">About</a></li>
+      <li><a href="#experience" class="nav-link" data-section="experience">Experience</a></li>
+      <li><a href="#skills"     class="nav-link" data-section="skills">Skills</a></li>
+      <li><a href="#projects"   class="nav-link" data-section="projects">Projects</a></li>
+      <li><a href="#contact"    class="nav-link" data-section="contact">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+    <ul role="list">
+      <li><a href="#home"       class="mobile-nav-link">Home</a></li>
+      <li><a href="#about"      class="mobile-nav-link">About</a></li>
+      <li><a href="#experience" class="mobile-nav-link">Experience</a></li>
+      <li><a href="#skills"     class="mobile-nav-link">Skills</a></li>
+      <li><a href="#projects"   class="mobile-nav-link">Projects</a></li>
+      <li><a href="#contact"    class="mobile-nav-link">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+
+<!-- ===== HERO ===== -->
+<section id="home" class="hero-section" aria-label="Introduction">
+  <!-- Floating dust -->
+  <div class="hero-dust" aria-hidden="true">
+    <div class="dust-p"></div><div class="dust-p"></div><div class="dust-p"></div>
+    <div class="dust-p"></div><div class="dust-p"></div><div class="dust-p"></div>
+    <div class="dust-p"></div><div class="dust-p"></div><div class="dust-p"></div>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-text">
+      <p class="eyebrow">✦ Available for Freelance</p>
+      <h1 class="hero-title">
+        Designing<br/>
+        <span class="hero-accent">Desert-Smooth</span><br/>
+        Experiences
+      </h1>
+      <p class="hero-role">UI/UX Designer &amp; Product Designer</p>
+      <p class="hero-tagline">"I design digital experiences that feel as smooth as desert sand."</p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary">
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h12M10 4l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          View Projects
+        </a>
+        <a href="#contact" class="btn btn-secondary">Hire Me</a>
+      </div>
+    </div>
+
+    <!-- Desert SVG scene -->
+    <div class="hero-illustration" aria-label="Desert scene illustration">
+      <svg class="desert-scene" viewBox="0 0 520 390" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustrated desert with sun, dunes, palm tree, pyramids and a walking camel">
+        <defs>
+          <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FBF0D0"/><stop offset="100%" stop-color="#F0CF88"/></linearGradient>
+          <linearGradient id="dg1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#C99A4B"/><stop offset="100%" stop-color="#7A4520"/></linearGradient>
+          <linearGradient id="dg2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#E8C27A"/><stop offset="100%" stop-color="#C99A4B"/></linearGradient>
+          <radialGradient id="sunGlow" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#FFF8C0"/><stop offset="55%" stop-color="#F5C842"/><stop offset="100%" stop-color="#F5C842" stop-opacity="0"/></radialGradient>
+        </defs>
+        <!-- Sky -->
+        <rect width="520" height="390" fill="url(#sky)" rx="20"/>
+        <!-- Sun glow -->
+        <circle cx="410" cy="72" r="55" fill="url(#sunGlow)" opacity="0.8"/>
+        <circle cx="410" cy="72" r="32" fill="#F5C842"/>
+        <!-- Sun rays -->
+        <g stroke="#F5C842" stroke-width="2.5" stroke-linecap="round" opacity="0.5">
+          <line x1="410" y1="22" x2="410" y2="4"/><line x1="410" y1="122" x2="410" y2="140"/>
+          <line x1="360" y1="72" x2="342" y2="72"/><line x1="460" y1="72" x2="478" y2="72"/>
+          <line x1="375" y1="37" x2="362" y2="24"/><line x1="445" y1="107" x2="458" y2="120"/>
+          <line x1="445" y1="37" x2="458" y2="24"/><line x1="375" y1="107" x2="362" y2="120"/>
+        </g>
+        <!-- Background dunes -->
+        <path d="M0 310 Q90 255 180 275 Q270 295 360 248 Q440 210 520 245 L520 390 L0 390Z" fill="#C99A4B" opacity="0.45"/>
+        <!-- Pyramids -->
+        <polygon points="50,280 88,315 12,315" fill="#C99A4B" opacity="0.55"/>
+        <polygon points="60,285 82,315 38,315" fill="#E8C27A" opacity="0.3"/>
+        <line x1="50" y1="280" x2="50" y2="315" stroke="#8B5A2B" stroke-width="0.7" opacity="0.35"/>
+        <!-- Palm -->
+        <path d="M78 315 Q76 295 79 272 Q81 252 78 238" stroke="#7A4520" stroke-width="5" stroke-linecap="round" fill="none"/>
+        <path d="M78 242 Q60 232 50 220" stroke="#2E7D74" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+        <path d="M78 242 Q74 224 72 212" stroke="#2E7D74" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+        <path d="M78 242 Q96 232 106 222" stroke="#2E7D74" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+        <path d="M78 242 Q98 246 108 250" stroke="#2E7D74" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+        <ellipse cx="78" cy="320" rx="22" ry="7" fill="#2E7D74" opacity="0.25"/>
+        <!-- Mid dune -->
+        <path d="M0 340 Q110 298 220 318 Q330 338 430 302 Q476 282 520 296 L520 390 L0 390Z" fill="url(#dg2)"/>
+        <!-- Walking Camel -->
+        <g id="hero-camel">
+          <!-- body -->
+          <ellipse cx="290" cy="328" rx="46" ry="24" fill="#C99A4B"/>
+          <!-- hump -->
+          <ellipse cx="282" cy="308" rx="22" ry="20" fill="#C99A4B"/>
+          <path d="M260 312 Q282 298 304 312" fill="#C99A4B"/>
+          <!-- neck -->
+          <path d="M328 320 Q342 312 344 298 Q346 285 340 280 Q334 275 328 282 Q322 290 326 308Z" fill="#C99A4B"/>
+          <!-- head -->
+          <ellipse cx="338" cy="278" rx="12" ry="10" fill="#C99A4B"/>
+          <!-- snout -->
+          <path d="M346 280 Q354 280 354 286 Q354 292 346 292 Q340 292 338 287Z" fill="#C99A4B"/>
+          <ellipse cx="348" cy="290" rx="2" ry="1.2" fill="#6B3A1A" opacity="0.5"/>
+          <ellipse cx="353" cy="290" rx="2" ry="1.2" fill="#6B3A1A" opacity="0.5"/>
+          <!-- eye -->
+          <circle cx="332" cy="275" r="3" fill="#3A1A00"/>
+          <circle cx="331" cy="274" r="1" fill="#fff" opacity="0.7"/>
+          <!-- ear -->
+          <ellipse cx="330" cy="269" rx="4" ry="6" fill="#8B5A2B" transform="rotate(-15 330 269)"/>
+          <!-- tail -->
+          <path d="M248 330 Q238 328 234 338" stroke="#8B5A2B" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <!-- legs (walking pose) -->
+          <rect x="260" y="348" width="8" height="26" rx="4" fill="#8B5A2B" transform="rotate(-6 260 348)"/>
+          <rect x="276" y="348" width="8" height="26" rx="4" fill="#8B5A2B" transform="rotate(7 276 348)"/>
+          <rect x="298" y="348" width="8" height="26" rx="4" fill="#8B5A2B" transform="rotate(-7 298 348)"/>
+          <rect x="314" y="348" width="8" height="26" rx="4" fill="#8B5A2B" transform="rotate(5 314 348)"/>
+          <!-- feet -->
+          <ellipse cx="263" cy="372" rx="7" ry="3" fill="#6B3A1A"/>
+          <ellipse cx="279" cy="372" rx="7" ry="3" fill="#6B3A1A"/>
+          <ellipse cx="299" cy="372" rx="7" ry="3" fill="#6B3A1A"/>
+          <ellipse cx="316" cy="372" rx="7" ry="3" fill="#6B3A1A"/>
+          <!-- saddle -->
+          <ellipse cx="285" cy="310" rx="18" ry="8" fill="#C8553D" opacity="0.6"/>
+        </g>
+        <!-- Foreground dune -->
+        <path d="M0 370 Q140 350 280 362 Q400 374 520 355 L520 390 L0 390Z" fill="url(#dg1)"/>
+        <!-- Ripple marks -->
+        <g stroke="#7A4520" stroke-width="1" opacity="0.18">
+          <path d="M20 382 Q55 378 90 382"/><path d="M140 386 Q190 382 240 386"/>
+          <path d="M360 379 Q410 375 460 379"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <a href="#about" class="scroll-indicator" aria-label="Scroll down to About section">
+    <span class="scroll-text">Scroll</span>
+    <div class="scroll-ring">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+  </a>
+
+  <!-- Dune wave divider -->
+  <div class="dune-divider" aria-hidden="true">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path d="M0 80 Q200 30 400 55 Q600 80 800 38 Q1000 4 1200 35 Q1340 55 1440 22 L1440 80Z" fill="#C99A4B" opacity="0.45"/>
+      <path d="M0 80 Q240 48 480 64 Q720 80 960 52 Q1160 28 1440 50 L1440 80Z" fill="#E8C27A" opacity="0.6"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section id="about" class="about-section reveal-section" aria-label="About Deni Raj">
+  <div class="container">
+    <div class="section-header">
+      <p class="eyebrow">✦ Know Me Better</p>
+      <h2 class="section-title">About Me</h2>
+      <div class="title-bar" aria-hidden="true"></div>
+    </div>
+    <div class="about-grid">
+      <!-- Profile card -->
+      <div class="profile-card sand-card">
+        <div class="profile-avatar" aria-label="Illustrated portrait of Deni Raj">
+          <svg viewBox="0 0 200 220" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="avbg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#E8C27A"/><stop offset="100%" stop-color="#C99A4B"/></linearGradient>
+            </defs>
+            <circle cx="100" cy="92" r="78" fill="url(#avbg)"/>
+            <!-- clothes -->
+            <path d="M28 200 Q28 162 58 152 Q78 146 100 149 Q122 146 142 152 Q172 162 172 200Z" fill="#2E7D74"/>
+            <!-- neck -->
+            <rect x="88" y="128" width="24" height="24" rx="8" fill="#E8C27A"/>
+            <!-- head -->
+            <ellipse cx="100" cy="103" rx="42" ry="46" fill="#E8C27A"/>
+            <!-- hair -->
+            <path d="M58 98 Q60 60 100 56 Q140 60 142 98 Q140 78 100 74 Q60 78 58 98Z" fill="#3A1A00"/>
+            <path d="M58 98 Q52 114 55 128" stroke="#3A1A00" stroke-width="6" fill="none" stroke-linecap="round"/>
+            <path d="M142 98 Q148 114 145 128" stroke="#3A1A00" stroke-width="6" fill="none" stroke-linecap="round"/>
+            <!-- eyes -->
+            <ellipse cx="84" cy="107" rx="8" ry="8" fill="white"/>
+            <ellipse cx="116" cy="107" rx="8" ry="8" fill="white"/>
+            <circle cx="85" cy="108" r="5" fill="#3A1A00"/>
+            <circle cx="117" cy="108" r="5" fill="#3A1A00"/>
+            <circle cx="83.5" cy="106.5" r="1.5" fill="white"/>
+            <circle cx="115.5" cy="106.5" r="1.5" fill="white"/>
+            <!-- brows -->
+            <path d="M76 97 Q84 93 92 96" stroke="#3A1A00" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+            <path d="M108 96 Q116 93 124 97" stroke="#3A1A00" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+            <!-- nose -->
+            <path d="M97 116 Q100 122 103 116" stroke="#C99A4B" stroke-width="2" stroke-linecap="round" fill="none"/>
+            <!-- smile -->
+            <path d="M86 131 Q100 141 114 131" stroke="#C8553D" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+            <!-- ears -->
+            <ellipse cx="58" cy="108" rx="8" ry="10" fill="#E8C27A"/>
+            <ellipse cx="142" cy="108" rx="8" ry="10" fill="#E8C27A"/>
+            <circle cx="140" cy="116" r="3.5" fill="#C8553D"/>
+            <!-- design sparkles -->
+            <text x="15" y="52" font-size="18" opacity="0.4">✏️</text>
+            <text x="166" y="48" font-size="15" opacity="0.4">🎨</text>
+          </svg>
+        </div>
+        <p class="profile-name">Deni Raj</p>
+        <span class="profile-badge">UI/UX Designer</span>
+        <ul class="quick-facts" aria-label="Quick facts about Deni">
+          <li class="qf-item">
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true" width="18" height="18"><path d="M10 2a6 6 0 100 12A6 6 0 0010 2zm0 8a2 2 0 110-4 2 2 0 010 4z" stroke="currentColor" stroke-width="1.5"/><path d="M4 18c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <span><strong>Location</strong>Chennai, India</span>
+          </li>
+          <li class="qf-item">
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true" width="18" height="18"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.5"/><path d="M10 6v4l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <span><strong>Experience</strong>5+ Years</span>
+          </li>
+          <li class="qf-item">
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true" width="18" height="18"><circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M7 10l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <span><strong>Availability</strong>Open to Work</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Bio + stats -->
+      <div class="about-right">
+        <div class="bio-card sand-card">
+          <p class="bio-text">Hi, I'm <strong>Deni</strong>, a UI/UX designer with 5+ years of experience crafting intuitive, human-centered digital products. I love turning complex problems into simple, beautiful interfaces. From research and wireframes to high-fidelity prototypes and design systems, I help startups and brands build products people enjoy using.</p>
+          <!-- Decorative cactus -->
+          <div class="bio-deco" aria-hidden="true">
+            <svg viewBox="0 0 40 68" fill="none" width="36">
+              <rect x="15" y="8" width="10" height="52" rx="5" fill="#2E7D74" opacity="0.5"/>
+              <rect x="3" y="20" width="12" height="8" rx="4" fill="#2E7D74" opacity="0.5"/>
+              <rect x="3" y="16" width="6" height="16" rx="3" fill="#2E7D74" opacity="0.5"/>
+              <rect x="25" y="26" width="12" height="8" rx="4" fill="#2E7D74" opacity="0.5"/>
+              <rect x="31" y="22" width="6" height="16" rx="3" fill="#2E7D74" opacity="0.5"/>
+              <circle cx="20" cy="6" r="5" fill="#C8553D" opacity="0.5"/>
+            </svg>
+          </div>
+        </div>
+        <div class="stats-row" role="list" aria-label="Career statistics">
+          <div class="stat-card sand-card" role="listitem">
+            <div class="stat-num" data-target="5" data-suffix="+">0</div>
+            <div class="stat-lbl">Years Experience</div>
+          </div>
+          <div class="stat-card sand-card" role="listitem">
+            <div class="stat-num" data-target="48" data-suffix="">0</div>
+            <div class="stat-lbl">Projects Completed</div>
+          </div>
+          <div class="stat-card sand-card" role="listitem">
+            <div class="stat-num" data-target="30" data-suffix="+">0</div>
+            <div class="stat-lbl">Happy Clients</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="dune-divider" aria-hidden="true">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path d="M0 80 Q220 38 440 58 Q660 78 880 40 Q1060 10 1260 42 Q1370 58 1440 28 L1440 80Z" fill="#C99A4B" opacity="0.38"/>
+      <path d="M0 80 Q300 52 600 68 Q900 84 1160 52 Q1320 32 1440 58 L1440 80Z" fill="#E8C27A" opacity="0.55"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ===== EXPERIENCE ===== -->
+<section id="experience" class="experience-section reveal-section" aria-label="Work experience timeline">
+  <div class="container">
+    <div class="section-header">
+      <p class="eyebrow">✦ The Journey</p>
+      <h2 class="section-title">Experience</h2>
+      <div class="title-bar" aria-hidden="true"></div>
+    </div>
+    <div class="timeline" role="list" aria-label="Career timeline">
+      <div class="timeline-track" aria-hidden="true"></div>
+
+      <article class="timeline-item reveal-section" role="listitem">
+        <div class="tl-dot" aria-hidden="true" style="background:#C8553D">
+          <svg viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="tl-card sand-card">
+          <div class="tl-meta">
+            <span class="tl-period">2023 – Present</span>
+            <span class="tl-company">Mirage Labs</span>
+          </div>
+          <h3 class="tl-role">Senior UI/UX Designer</h3>
+          <p class="tl-desc">Lead design for a fintech app with 500K+ users, built a design system that cut design-to-dev time by 40%.</p>
+          <div class="tags-row"><span class="tag">Fintech</span><span class="tag">Design Systems</span><span class="tag">Leadership</span></div>
+        </div>
+      </article>
+
+      <article class="timeline-item reveal-section" role="listitem">
+        <div class="tl-dot" aria-hidden="true" style="background:#2E7D74">
+          <svg viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="tl-card sand-card">
+          <div class="tl-meta">
+            <span class="tl-period">2021 – 2023</span>
+            <span class="tl-company">Oasis Studio</span>
+          </div>
+          <h3 class="tl-role">UI/UX Designer</h3>
+          <p class="tl-desc">Designed web and mobile products for e-commerce and healthcare clients, ran usability tests and improved conversion by 28%.</p>
+          <div class="tags-row"><span class="tag">E-Commerce</span><span class="tag">Healthcare</span><span class="tag">Usability Testing</span></div>
+        </div>
+      </article>
+
+      <article class="timeline-item reveal-section" role="listitem">
+        <div class="tl-dot" aria-hidden="true" style="background:#C99A4B">
+          <svg viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="tl-card sand-card">
+          <div class="tl-meta">
+            <span class="tl-period">2019 – 2021</span>
+            <span class="tl-company">Dune Digital</span>
+          </div>
+          <h3 class="tl-role">Junior Product Designer</h3>
+          <p class="tl-desc">Created wireframes, icons and UI kits, and assisted in user research and prototyping.</p>
+          <div class="tags-row"><span class="tag">Wireframing</span><span class="tag">UI Kits</span><span class="tag">User Research</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+  <div class="dune-divider" aria-hidden="true">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path d="M0 60 Q360 18 720 46 Q1080 74 1440 30 L1440 80 L0 80Z" fill="#E8C27A" opacity="0.5"/>
+      <path d="M0 80 Q400 55 800 68 Q1100 78 1440 52 L1440 80Z" fill="#C99A4B" opacity="0.35"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ===== SKILLS ===== -->
+<section id="skills" class="skills-section reveal-section" aria-label="Skills and tools">
+  <div class="container">
+    <div class="section-header">
+      <p class="eyebrow">✦ My Craft</p>
+      <h2 class="section-title">Skills &amp; Tools</h2>
+      <div class="title-bar" aria-hidden="true"></div>
+    </div>
+    <div class="skills-grid">
+      <!-- Design skills (progress bars) -->
+      <div class="skill-group">
+        <h3 class="skill-group-title">Design Skills</h3>
+        <div class="skill-bars" role="list">
+          <div class="skill-item" role="listitem">
+            <div class="skill-label-row"><span>UI Design</span><span class="skill-pct">95%</span></div>
+            <div class="skill-track" aria-label="UI Design proficiency: 95%"><div class="skill-fill" data-width="95"></div></div>
+          </div>
+          <div class="skill-item" role="listitem">
+            <div class="skill-label-row"><span>UX Research</span><span class="skill-pct">88%</span></div>
+            <div class="skill-track" aria-label="UX Research proficiency: 88%"><div class="skill-fill" data-width="88"></div></div>
+          </div>
+          <div class="skill-item" role="listitem">
+            <div class="skill-label-row"><span>Wireframing</span><span class="skill-pct">92%</span></div>
+            <div class="skill-track" aria-label="Wireframing proficiency: 92%"><div class="skill-fill" data-width="92"></div></div>
+          </div>
+          <div class="skill-item" role="listitem">
+            <div class="skill-label-row"><span>Prototyping</span><span class="skill-pct">90%</span></div>
+            <div class="skill-track" aria-label="Prototyping proficiency: 90%"><div class="skill-fill" data-width="90"></div></div>
+          </div>
+          <div class="skill-item" role="listitem">
+            <div class="skill-label-row"><span>Design Systems</span><span class="skill-pct">85%</span></div>
+            <div class="skill-track" aria-label="Design Systems proficiency: 85%"><div class="skill-fill" data-width="85"></div></div>
+          </div>
+          <div class="skill-item" role="listitem">
+            <div class="skill-label-row"><span>Interaction / Motion</span><span class="skill-pct">80%</span></div>
+            <div class="skill-track" aria-label="Interaction/Motion proficiency: 80%"><div class="skill-fill" data-width="80"></div></div>
+          </div>
+        </div>
+      </div>
+      <!-- Tools (badges) -->
+      <div class="skill-group">
+        <h3 class="skill-group-title">Tools &amp; Tech</h3>
+        <div class="tools-grid" role="list" aria-label="Design tools">
+          <div class="tool-badge sand-card" role="listitem">
+            <svg class="tool-icon" viewBox="0 0 28 28" fill="none" aria-hidden="true"><rect width="28" height="28" rx="6" fill="#2E7D74" opacity="0.15"/><path d="M14 8v12M8 14h12" stroke="#2E7D74" stroke-width="2" stroke-linecap="round"/></svg>
+            Figma
+          </div>
+          <div class="tool-badge sand-card" role="listitem">
+            <svg class="tool-icon" viewBox="0 0 28 28" fill="none" aria-hidden="true"><rect width="28" height="28" rx="6" fill="#C8553D" opacity="0.15"/><circle cx="14" cy="14" r="5" stroke="#C8553D" stroke-width="2"/></svg>
+            Adobe XD
+          </div>
+          <div class="tool-badge sand-card" role="listitem">
+            <svg class="tool-icon" viewBox="0 0 28 28" fill="none" aria-hidden="true"><rect width="28" height="28" rx="6" fill="#C99A4B" opacity="0.15"/><path d="M7 16l4-8 4 8M11 14h4" stroke="#C99A4B" stroke-width="2" stroke-linecap="round"/></svg>
+            Photoshop
+          </div>
+          <div class="tool-badge sand-card" role="listitem">
+            <svg class="tool-icon" viewBox="0 0 28 28" fill="none" aria-hidden="true"><rect width="28" height="28" rx="6" fill="#8B5A2B" opacity="0.15"/><path d="M8 8l12 12M20 8L8 20" stroke="#8B5A2B" stroke-width="2" stroke-linecap="round"/></svg>
+            Illustrator
+          </div>
+          <div class="tool-badge sand-card" role="listitem">
+            <svg class="tool-icon" viewBox="0 0 28 28" fill="none" aria-hidden="true"><rect width="28" height="28" rx="6" fill="#4A2E14" opacity="0.12"/><circle cx="14" cy="14" r="5" stroke="#4A2E14" stroke-width="2"/><circle cx="14" cy="14" r="2" fill="#4A2E14" opacity="0.4"/></svg>
+            Framer
+          </div>
+          <div class="tool-badge sand-card" role="listitem">
+            <svg class="tool-icon" viewBox="0 0 28 28" fill="none" aria-hidden="true"><rect width="28" height="28" rx="6" fill="#2E7D74" opacity="0.15"/><path d="M7 10h14M7 14h10M7 18h12" stroke="#2E7D74" stroke-width="2" stroke-linecap="round"/></svg>
+            Notion
+          </div>
+          <div class="tool-badge sand-card" role="listitem">
+            <svg class="tool-icon" viewBox="0 0 28 28" fill="none" aria-hidden="true"><rect width="28" height="28" rx="6" fill="#C8553D" opacity="0.15"/><circle cx="9" cy="9" r="3" stroke="#C8553D" stroke-width="1.5"/><circle cx="19" cy="9" r="3" stroke="#C8553D" stroke-width="1.5"/><path d="M9 9 Q14 16 19 9" stroke="#C8553D" stroke-width="1.5" fill="none"/></svg>
+            Miro
+          </div>
+          <div class="tool-badge sand-card" role="listitem">
+            <svg class="tool-icon" viewBox="0 0 28 28" fill="none" aria-hidden="true"><rect width="28" height="28" rx="6" fill="#C99A4B" opacity="0.15"/><path d="M8 9h12M8 14h8M8 19h10" stroke="#C99A4B" stroke-width="2" stroke-linecap="round"/></svg>
+            Webflow
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="dune-divider" aria-hidden="true">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path d="M0 55 Q380 12 760 44 Q1100 72 1440 28 L1440 80 L0 80Z" fill="#E8C27A" opacity="0.55"/>
+      <path d="M0 80 Q440 52 880 66 Q1140 74 1440 50 L1440 80Z" fill="#C99A4B" opacity="0.3"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ===== PROJECTS ===== -->
+<section id="projects" class="projects-section reveal-section" aria-label="Portfolio projects">
+  <div class="container">
+    <div class="section-header">
+      <p class="eyebrow">✦ Portfolio</p>
+      <h2 class="section-title">Projects</h2>
+      <div class="title-bar" aria-hidden="true"></div>
+    </div>
+    <!-- Filter tabs -->
+    <div class="filter-bar" role="tablist" aria-label="Filter projects by category">
+      <button class="filter-btn active" data-filter="all"      role="tab" aria-selected="true">All</button>
+      <button class="filter-btn"        data-filter="mobile"   role="tab" aria-selected="false">Mobile</button>
+      <button class="filter-btn"        data-filter="web"      role="tab" aria-selected="false">Web</button>
+      <button class="filter-btn"        data-filter="branding" role="tab" aria-selected="false">Branding</button>
+    </div>
+
+    <div class="projects-grid" role="list">
+
+      <!-- 1 Sahara Pay -->
+      <article class="project-card sand-card" data-category="mobile" role="listitem" aria-label="Sahara Pay project">
+        <div class="proj-thumb">
+          <svg viewBox="0 0 300 175" fill="none"><defs><linearGradient id="p1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#2E7D74"/><stop offset="100%" stop-color="#C99A4B"/></linearGradient></defs>
+          <rect width="300" height="175" fill="url(#p1)" rx="10"/>
+          <rect x="100" y="18" width="100" height="142" rx="12" fill="rgba(255,255,255,0.14)" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/>
+          <rect x="128" y="24" width="44" height="6" rx="3" fill="rgba(255,255,255,0.35)"/>
+          <circle cx="150" cy="62" r="16" fill="rgba(255,255,255,0.55)"/>
+          <text x="143" y="67" font-size="13" fill="#2E7D74" font-family="sans-serif" font-weight="bold">$</text>
+          <rect x="110" y="88" width="80" height="10" rx="4" fill="rgba(255,255,255,0.25)"/>
+          <rect x="110" y="105" width="60" height="8" rx="3" fill="rgba(255,255,255,0.18)"/>
+          <rect x="110" y="120" width="80" height="26" rx="6" fill="rgba(255,255,255,0.12)"/>
+          </svg>
+        </div>
+        <div class="proj-info">
+          <h3 class="proj-title">Sahara Pay</h3>
+          <p class="proj-desc">A fintech mobile app redesign focused on trust, speed and accessibility for 500K+ daily active users.</p>
+          <div class="tags-row"><span class="tag">Fintech</span><span class="tag">Mobile</span><span class="tag">UX Research</span></div>
+          <a href="#" class="btn-case">View Case Study →</a>
+        </div>
+      </article>
+
+      <!-- 2 Oasis Health -->
+      <article class="project-card sand-card" data-category="web" role="listitem" aria-label="Oasis Health project">
+        <div class="proj-thumb">
+          <svg viewBox="0 0 300 175" fill="none"><defs><linearGradient id="p2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#C8553D"/><stop offset="100%" stop-color="#F0CF88"/></linearGradient></defs>
+          <rect width="300" height="175" fill="url(#p2)" rx="10"/>
+          <rect x="18" y="22" width="264" height="136" rx="8" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.28)" stroke-width="1.5"/>
+          <rect x="18" y="22" width="264" height="26" rx="8" fill="rgba(255,255,255,0.18)"/>
+          <circle cx="32" cy="35" r="4.5" fill="rgba(255,100,100,0.55)"/><circle cx="46" cy="35" r="4.5" fill="rgba(255,200,80,0.55)"/><circle cx="60" cy="35" r="4.5" fill="rgba(100,220,100,0.55)"/>
+          <rect x="86" y="29" width="136" height="12" rx="6" fill="rgba(255,255,255,0.28)"/>
+          <rect x="28" y="60" width="72" height="56" rx="6" fill="rgba(255,255,255,0.18)"/>
+          <path d="M46 82 Q46 78 50 78 Q54 78 54 82 Q54 78 58 78 Q62 78 62 82 Q62 89 54 96 Q46 89 46 82Z" fill="rgba(255,255,255,0.7)"/>
+          <rect x="110" y="60" width="160" height="10" rx="4" fill="rgba(255,255,255,0.28)"/>
+          <rect x="110" y="76" width="130" height="8" rx="3" fill="rgba(255,255,255,0.18)"/>
+          <rect x="110" y="90" width="100" height="8" rx="3" fill="rgba(255,255,255,0.14)"/>
+          </svg>
+        </div>
+        <div class="proj-info">
+          <h3 class="proj-title">Oasis Health</h3>
+          <p class="proj-desc">A telemedicine web platform connecting patients and doctors through a calm, trustworthy design language.</p>
+          <div class="tags-row"><span class="tag">Healthcare</span><span class="tag">Web</span><span class="tag">Design System</span></div>
+          <a href="#" class="btn-case">View Case Study →</a>
+        </div>
+      </article>
+
+      <!-- 3 Caravan Travel -->
+      <article class="project-card sand-card" data-category="mobile" role="listitem" aria-label="Caravan Travel project">
+        <div class="proj-thumb">
+          <svg viewBox="0 0 300 175" fill="none"><defs><linearGradient id="p3" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#8B5A2B"/><stop offset="100%" stop-color="#2E7D74"/></linearGradient></defs>
+          <rect width="300" height="175" fill="url(#p3)" rx="10"/>
+          <circle cx="240" cy="44" r="30" fill="rgba(255,200,50,0.35)"/>
+          <rect x="110" y="20" width="80" height="138" rx="10" fill="rgba(255,255,255,0.14)" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/>
+          <rect x="133" y="26" width="34" height="5" rx="2.5" fill="rgba(255,255,255,0.38)"/>
+          <rect x="116" y="38" width="68" height="48" rx="5" fill="rgba(255,255,255,0.18)"/>
+          <text x="140" y="68" font-size="22" fill="rgba(255,255,255,0.75)">✈</text>
+          <rect x="116" y="94" width="50" height="8" rx="3" fill="rgba(255,255,255,0.3)"/>
+          <rect x="116" y="108" width="68" height="26" rx="5" fill="rgba(255,255,255,0.15)"/>
+          </svg>
+        </div>
+        <div class="proj-info">
+          <h3 class="proj-title">Caravan Travel</h3>
+          <p class="proj-desc">A travel booking app with immersive destination discovery and a seamless offline-capable booking flow.</p>
+          <div class="tags-row"><span class="tag">Travel</span><span class="tag">Mobile</span><span class="tag">Prototyping</span></div>
+          <a href="#" class="btn-case">View Case Study →</a>
+        </div>
+      </article>
+
+      <!-- 4 Dune Coffee -->
+      <article class="project-card sand-card" data-category="branding" role="listitem" aria-label="Dune Coffee project">
+        <div class="proj-thumb">
+          <svg viewBox="0 0 300 175" fill="none"><defs><linearGradient id="p4" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#3A1A00"/><stop offset="100%" stop-color="#C99A4B"/></linearGradient></defs>
+          <rect width="300" height="175" fill="url(#p4)" rx="10"/>
+          <path d="M92 70 L208 70 L194 148 L106 148Z" fill="rgba(255,255,255,0.13)" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+          <ellipse cx="150" cy="70" rx="58" ry="14" fill="rgba(255,255,255,0.18)"/>
+          <path d="M200 90 Q224 90 224 112 Q224 134 200 134" stroke="rgba(255,255,255,0.38)" stroke-width="7" fill="none" stroke-linecap="round"/>
+          <path d="M122 58 Q118 44 122 30" stroke="rgba(255,255,255,0.28)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <path d="M150 54 Q146 38 150 22" stroke="rgba(255,255,255,0.38)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <path d="M178 58 Q174 44 178 30" stroke="rgba(255,255,255,0.28)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <path d="M106 100 Q130 90 154 100 Q178 110 202 100" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" fill="none"/>
+          </svg>
+        </div>
+        <div class="proj-info">
+          <h3 class="proj-title">Dune Coffee</h3>
+          <p class="proj-desc">Full brand identity and packaging for an artisan café chain inspired by desert warmth and earthy textures.</p>
+          <div class="tags-row"><span class="tag">Branding</span><span class="tag">Packaging</span><span class="tag">Identity</span></div>
+          <a href="#" class="btn-case">View Case Study →</a>
+        </div>
+      </article>
+
+      <!-- 5 Mirage Analytics -->
+      <article class="project-card sand-card" data-category="web" role="listitem" aria-label="Mirage Analytics project">
+        <div class="proj-thumb">
+          <svg viewBox="0 0 300 175" fill="none"><defs><linearGradient id="p5" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0e2e2e"/><stop offset="100%" stop-color="#2E7D74"/></linearGradient></defs>
+          <rect width="300" height="175" fill="url(#p5)" rx="10"/>
+          <rect x="18" y="18" width="62" height="142" rx="6" fill="rgba(255,255,255,0.07)"/>
+          <rect x="26" y="32" width="46" height="8" rx="3" fill="rgba(255,255,255,0.28)"/>
+          <rect x="26" y="48" width="46" height="6" rx="2" fill="rgba(255,255,255,0.14)"/>
+          <rect x="26" y="60" width="46" height="6" rx="2" fill="rgba(255,255,255,0.14)"/>
+          <rect x="26" y="72" width="46" height="6" rx="2" fill="rgba(255,255,255,0.14)"/>
+          <rect x="90" y="18" width="192" height="60" rx="6" fill="rgba(255,255,255,0.08)"/>
+          <path d="M98 52 Q138 40 178 48 Q218 56 258 36 L258 78 L98 78Z" fill="rgba(46,125,116,0.25)"/>
+          <path d="M98 52 Q138 40 178 48 Q218 56 258 36" stroke="rgba(200,200,80,0.7)" stroke-width="2" fill="none"/>
+          <rect x="98" y="104" width="18" height="56" rx="3" fill="rgba(46,125,116,0.6)"/>
+          <rect x="122" y="90" width="18" height="70" rx="3" fill="rgba(46,125,116,0.8)"/>
+          <rect x="146" y="110" width="18" height="50" rx="3" fill="rgba(46,125,116,0.55)"/>
+          <rect x="170" y="82" width="18" height="78" rx="3" fill="rgba(200,85,61,0.8)"/>
+          <rect x="194" y="96" width="18" height="64" rx="3" fill="rgba(46,125,116,0.7)"/>
+          <rect x="218" y="72" width="18" height="88" rx="3" fill="rgba(200,85,61,0.9)"/>
+          <rect x="242" y="108" width="18" height="52" rx="3" fill="rgba(46,125,116,0.6)"/>
+          </svg>
+        </div>
+        <div class="proj-info">
+          <h3 class="proj-title">Mirage Analytics</h3>
+          <p class="proj-desc">A SaaS dashboard for real-time business intelligence, balancing data density with visual clarity.</p>
+          <div class="tags-row"><span class="tag">SaaS</span><span class="tag">Web</span><span class="tag">Data Viz</span></div>
+          <a href="#" class="btn-case">View Case Study →</a>
+        </div>
+      </article>
+
+      <!-- 6 Nomad Learn -->
+      <article class="project-card sand-card" data-category="web" role="listitem" aria-label="Nomad Learn project">
+        <div class="proj-thumb">
+          <svg viewBox="0 0 300 175" fill="none"><defs><linearGradient id="p6" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#C8553D"/><stop offset="100%" stop-color="#3A1A00"/></linearGradient></defs>
+          <rect width="300" height="175" fill="url(#p6)" rx="10"/>
+          <rect x="80" y="38" width="140" height="105" rx="8" fill="rgba(255,255,255,0.13)" stroke="rgba(255,255,255,0.28)" stroke-width="1.5"/>
+          <line x1="150" y1="38" x2="150" y2="143" stroke="rgba(255,255,255,0.22)" stroke-width="1.5"/>
+          <rect x="88" y="52" width="54" height="7" rx="3" fill="rgba(255,255,255,0.38)"/>
+          <rect x="88" y="65" width="44" height="4" rx="2" fill="rgba(255,255,255,0.2)"/>
+          <rect x="88" y="75" width="50" height="4" rx="2" fill="rgba(255,255,255,0.2)"/>
+          <rect x="88" y="85" width="36" height="4" rx="2" fill="rgba(255,255,255,0.15)"/>
+          <rect x="88" y="108" width="54" height="8" rx="4" fill="rgba(255,255,255,0.15)"/>
+          <rect x="88" y="108" width="36" height="8" rx="4" fill="rgba(255,255,255,0.45)"/>
+          <rect x="158" y="52" width="54" height="7" rx="3" fill="rgba(255,255,255,0.38)"/>
+          <rect x="158" y="65" width="44" height="4" rx="2" fill="rgba(255,255,255,0.2)"/>
+          <rect x="158" y="75" width="50" height="4" rx="2" fill="rgba(255,255,255,0.2)"/>
+          <circle cx="242" cy="36" r="22" fill="rgba(255,200,50,0.28)"/>
+          <text x="235" y="42" font-size="18" fill="rgba(255,200,50,0.9)">★</text>
+          </svg>
+        </div>
+        <div class="proj-info">
+          <h3 class="proj-title">Nomad Learn</h3>
+          <p class="proj-desc">An e-learning platform UX that keeps learners engaged with adaptive content flows and progress-driven motivation.</p>
+          <div class="tags-row"><span class="tag">EdTech</span><span class="tag">Web</span><span class="tag">UX Strategy</span></div>
+          <a href="#" class="btn-case">View Case Study →</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+  <div class="dune-divider" aria-hidden="true">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path d="M0 50 Q360 10 720 40 Q1080 70 1440 22 L1440 80 L0 80Z" fill="#C99A4B" opacity="0.45"/>
+      <path d="M0 80 Q300 56 600 70 Q900 84 1200 58 Q1350 44 1440 60 L1440 80Z" fill="#E8C27A" opacity="0.4"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact" class="contact-section reveal-section" aria-label="Contact Deni Raj">
+  <div class="container">
+    <div class="section-header">
+      <p class="eyebrow">✦ Say Hello</p>
+      <h2 class="section-title">Get In Touch</h2>
+      <div class="title-bar" aria-hidden="true"></div>
+    </div>
+    <div class="contact-grid">
+      <!-- Info cards -->
+      <div class="contact-info">
+        <div class="contact-card sand-card">
+          <div class="cc-icon"><svg viewBox="0 0 22 22" fill="none" aria-hidden="true" width="22" height="22"><rect x="2" y="4" width="18" height="14" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M2 8l9 5 9-5" stroke="currentColor" stroke-width="1.5"/></svg></div>
+          <div><p class="cc-label">Email</p><a href="mailto:hello@denidesigns.com" class="cc-val">hello@denidesigns.com</a></div>
+        </div>
+        <div class="contact-card sand-card">
+          <div class="cc-icon"><svg viewBox="0 0 22 22" fill="none" aria-hidden="true" width="22" height="22"><path d="M6 10.2c1.3 2.6 3.5 4.8 6.1 6.1l2-2c.3-.3.7-.4 1-.2 1 .4 2.1.6 3.3.6.6 0 1 .4 1 1V19c0 .6-.4 1-1 1-8.8 0-16-7.2-16-16 0-.6.4-1 1-1h3.3c.6 0 1 .4 1 1 0 1.2.2 2.3.6 3.3.1.3 0 .6-.2.9L6 10.2z" stroke="currentColor" stroke-width="1.5"/></svg></div>
+          <div><p class="cc-label">Phone</p><a href="tel:+919876543210" class="cc-val">+91 98765 43210</a></div>
+        </div>
+        <div class="contact-card sand-card">
+          <div class="cc-icon"><svg viewBox="0 0 22 22" fill="none" aria-hidden="true" width="22" height="22"><path d="M11 2a7 7 0 017 7c0 5-7 13-7 13S4 14 4 9a7 7 0 017-7z" stroke="currentColor" stroke-width="1.5"/><circle cx="11" cy="9" r="2.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
+          <div><p class="cc-label">Location</p><span class="cc-val">Chennai, India</span></div>
+        </div>
+        <!-- Desert deco -->
+        <div class="contact-deco" aria-hidden="true">
+          <svg viewBox="0 0 200 72" fill="none">
+            <path d="M0 72 Q50 38 100 55 Q150 72 200 38 L200 72Z" fill="#C99A4B" opacity="0.25"/>
+            <polygon points="28,56 52,72 4,72" fill="#8B5A2B" opacity="0.22"/>
+            <line x1="160" y1="72" x2="164" y2="45" stroke="#8B5A2B" stroke-width="3" opacity="0.28"/>
+            <path d="M164 48 Q154 40 148 32" stroke="#2E7D74" stroke-width="2" opacity="0.35" fill="none" stroke-linecap="round"/>
+            <path d="M164 48 Q174 40 180 32" stroke="#2E7D74" stroke-width="2" opacity="0.35" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="form-card sand-card">
+        <form id="contact-form" novalidate aria-label="Send a message to Deni Raj">
+          <div class="form-group">
+            <label for="contact-name">Your Name</label>
+            <input type="text" id="contact-name" name="name" placeholder="e.g. Alex from Cairo" autocomplete="name" required aria-required="true"/>
+            <span class="form-err" id="name-error" role="alert" aria-live="polite"></span>
+          </div>
+          <div class="form-group">
+            <label for="contact-email">Email Address</label>
+            <input type="email" id="contact-email" name="email" placeholder="hello@yourdomain.com" autocomplete="email" required aria-required="true"/>
+            <span class="form-err" id="email-error" role="alert" aria-live="polite"></span>
+          </div>
+          <div class="form-group">
+            <label for="contact-message">Your Message</label>
+            <textarea id="contact-message" name="message" rows="5" placeholder="Tell me about your project..." required aria-required="true"></textarea>
+            <span class="form-err" id="msg-error" role="alert" aria-live="polite"></span>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">
+            <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 10l14-6-6 14-2-5-6-3z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+            Send Message
+          </button>
+        </form>
+        <div id="form-success" class="form-success" role="status" aria-live="polite" hidden>
+          <svg viewBox="0 0 56 56" fill="none" aria-hidden="true" width="64" height="64"><circle cx="28" cy="28" r="26" fill="#2E7D74" opacity="0.12"/><circle cx="28" cy="28" r="20" fill="#2E7D74" opacity="0.15"/><path d="M16 28l9 9 14-16" stroke="#2E7D74" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <h3>Message sent! 🐪</h3>
+          <p>Thanks for reaching out — I'll get back to you faster than a camel crosses the desert!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Deep dune into footer -->
+  <div class="dune-divider footer-dune-div" aria-hidden="true">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <path d="M0 65 Q360 22 720 52 Q1080 82 1440 36 L1440 100 L0 100Z" fill="#8B5A2B" opacity="0.48"/>
+      <path d="M0 82 Q400 55 800 72 Q1100 84 1440 62 L1440 100 L0 100Z" fill="#4A2E14" opacity="0.6"/>
+    </svg>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer id="footer" class="footer-section" role="contentinfo">
+  <div class="footer-inner">
+    <div class="social-strip">
+      <h2 class="footer-heading">Find Me Online</h2>
+      <p class="footer-sub">Let's connect, collaborate, and create something beautiful.</p>
+      <div class="social-links" role="list" aria-label="Social media links">
+        <a href="#" class="social-btn" role="listitem" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect width="24" height="24" rx="6" fill="currentColor" opacity="0.12"/><path d="M6.5 9.5h2v8h-2v-8zm1-3a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5zM10.5 9.5h2v1.1c.4-.7 1.3-1.3 2.5-1.3 2.2 0 3 1.5 3 3.5v5.2h-2v-4.8c0-1-.4-1.9-1.5-1.9s-2 .8-2 2.1v4.6h-2V9.5z" fill="currentColor"/></svg>
+        </a>
+        <a href="#" class="social-btn" role="listitem" aria-label="Behance" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect width="24" height="24" rx="6" fill="currentColor" opacity="0.12"/><path d="M9 7H6v10h3.5c2 0 3.5-1 3.5-3 0-1.2-.5-2-1.4-2.4.6-.5 1-1.2 1-2C12.6 8 11.2 7 9 7zm-.5 4H8V9h1c.8 0 1.2.4 1.2 1S9.3 11 8.5 11zm.3 4H8v-2h.8c1 0 1.5.4 1.5 1s-.5 1-1.5 1zM16 9h-3v1h3V9zm1.5 5c-.3.8-1 1.3-2 1.3-1.2 0-2-.8-2-2h5c0-2.5-1-4-3.2-4-2 0-3.3 1.5-3.3 3.5S13.2 17 15.5 17c1.5 0 2.7-.8 3.2-2l-1.2-.2z" fill="currentColor"/></svg>
+        </a>
+        <a href="#" class="social-btn" role="listitem" aria-label="Dribbble" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect width="24" height="24" rx="6" fill="currentColor" opacity="0.12"/><circle cx="12" cy="12" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M5.5 9.5c2 .5 4 .5 6 0 2-.6 3.5-1.8 4.5-3" stroke="currentColor" stroke-width="1.2"/><path d="M5.2 14c1.5-.3 3.2-.3 5 .2 1.8.6 3 1.8 3.8 3.5" stroke="currentColor" stroke-width="1.2"/><path d="M9.5 5.5c.7 2.5 1 5 .8 7.5-.2 2-1 3.8-2.3 5" stroke="currentColor" stroke-width="1.2"/></svg>
+        </a>
+        <a href="#" class="social-btn" role="listitem" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect width="24" height="24" rx="6" fill="currentColor" opacity="0.12"/><rect x="5" y="5" width="14" height="14" rx="4" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="3.5" stroke="currentColor" stroke-width="1.5"/><circle cx="16.5" cy="7.5" r="1" fill="currentColor"/></svg>
+        </a>
+        <a href="#" class="social-btn" role="listitem" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect width="24" height="24" rx="6" fill="currentColor" opacity="0.12"/><path d="M12 4a8 8 0 00-2.53 15.59c.4.07.55-.17.55-.38v-1.33c-2.23.49-2.7-1.07-2.7-1.07-.36-.93-.89-1.18-.89-1.18-.73-.5.05-.49.05-.49.8.06 1.23.83 1.23.83.71 1.22 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.65-.89-3.65-3.97 0-.88.31-1.6.83-2.16-.08-.2-.36-1.02.08-2.13 0 0 .68-.22 2.22.83A7.72 7.72 0 0112 8.84c.69 0 1.38.09 2.02.27 1.54-1.05 2.22-.83 2.22-.83.44 1.11.16 1.93.08 2.13.52.56.83 1.28.83 2.16 0 3.09-1.87 3.77-3.66 3.97.29.25.55.74.55 1.49v2.21c0 .21.15.46.55.38A8 8 0 0012 4z" fill="currentColor"/></svg>
+        </a>
+        <a href="#" class="social-btn" role="listitem" aria-label="X (Twitter)" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect width="24" height="24" rx="6" fill="currentColor" opacity="0.12"/><path d="M4 4l6.5 8.5L4 20h2.5l5-6 5 6H20l-6.7-8.8L19.5 4H17l-4.5 5.5L8 4H4z" fill="currentColor"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <!-- Dune scene -->
+      <div class="footer-scene" aria-hidden="true">
+        <svg viewBox="0 0 500 55" fill="none" width="100%">
+          <polygon points="38,55 68,16 98,55" fill="#8B5A2B" opacity="0.4"/>
+          <polygon points="54,55 68,28 82,55" fill="#C99A4B" opacity="0.28"/>
+          <!-- camel silhouette -->
+          <g transform="translate(196,22) scale(0.65)">
+            <ellipse cx="44" cy="24" rx="32" ry="18" fill="#8B5A2B" opacity="0.45"/>
+            <ellipse cx="38" cy="10" rx="14" ry="12" fill="#8B5A2B" opacity="0.45"/>
+            <path d="M70 20 Q78 14 80 6 Q81 0 76 -2 Q71 -4 68 4 Q65 10 68 18Z" fill="#8B5A2B" opacity="0.45"/>
+            <rect x="15" y="38" width="6" height="16" rx="3" fill="#6B3A1A" opacity="0.45"/>
+            <rect x="28" y="38" width="6" height="16" rx="3" fill="#6B3A1A" opacity="0.45"/>
+            <rect x="50" y="38" width="6" height="16" rx="3" fill="#6B3A1A" opacity="0.45"/>
+            <rect x="63" y="38" width="6" height="16" rx="3" fill="#6B3A1A" opacity="0.45"/>
+          </g>
+          <!-- palm -->
+          <line x1="400" y1="55" x2="404" y2="22" stroke="#8B5A2B" stroke-width="3" opacity="0.38"/>
+          <path d="M404 25 Q392 16 385 8" stroke="#2E7D74" stroke-width="2.5" opacity="0.38" fill="none" stroke-linecap="round"/>
+          <path d="M404 25 Q416 16 423 8" stroke="#2E7D74" stroke-width="2.5" opacity="0.38" fill="none" stroke-linecap="round"/>
+          <path d="M404 25 Q406 12 404 4" stroke="#2E7D74" stroke-width="2.5" opacity="0.38" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="footer-row">
+        <p class="footer-copy">© 2024 <strong>Deni Raj</strong> — UI/UX Designer. Crafted with ☀️ in Chennai.</p>
+        <a href="#home" class="back-top" aria-label="Back to top">
+          <svg viewBox="0 0 38 38" fill="none" width="38" height="38" aria-hidden="true">
+            <circle cx="19" cy="19" r="17" fill="#C99A4B" opacity="0.8"/>
+            <path d="M13 22l6-7 6 7" stroke="#4A2E14" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>Back to Top</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
