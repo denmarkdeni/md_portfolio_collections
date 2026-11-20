@@ -1,0 +1,1395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Glassmorphism Request Form</title>
+  
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    /* ==========================================================================
+       CSS VARIABLES & THEME
+       ========================================================================== */
+    :root {
+      --bg-gradient: radial-gradient(circle at 15% 20%, #1e1b4b 0%, #0b1020 50%, #030712 100%);
+      --glass-surface: rgba(255, 255, 255, 0.05);
+      --glass-surface-hover: rgba(255, 255, 255, 0.08);
+      --glass-border: rgba(255, 255, 255, 0.12);
+      --glass-border-focus: rgba(34, 211, 238, 0.6);
+      --glass-input-bg: rgba(15, 23, 42, 0.6);
+      
+      --accent-cyan: #22d3ee;
+      --accent-violet: #8b5cf6;
+      --accent-emerald: #10b981;
+      --accent-rose: #f43f5e;
+      --accent-amber: #f59e0b;
+      
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-heading: 'Space Grotesk', sans-serif;
+      
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      --radius-full: 9999px;
+      
+      --shadow-glass: 0 20px 50px rgba(0, 0, 0, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.15);
+      --shadow-input-focus: 0 0 25px rgba(34, 211, 238, 0.35), inset 0 1px 2px rgba(255, 255, 255, 0.25);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg-gradient);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2.5rem 1rem;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Background Ambient Glowing Orbs */
+    .ambient-orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(110px);
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.35;
+      animation: floatOrb 12s infinite alternate ease-in-out;
+    }
+
+    .orb-1 {
+      top: -5%;
+      left: 10%;
+      width: 480px;
+      height: 480px;
+      background: #4f46e5;
+    }
+
+    .orb-2 {
+      bottom: -10%;
+      right: 5%;
+      width: 520px;
+      height: 520px;
+      background: #06b6d4;
+      animation-delay: -6s;
+    }
+
+    .orb-3 {
+      top: 40%;
+      right: 25%;
+      width: 320px;
+      height: 320px;
+      background: #8b5cf6;
+      opacity: 0.2;
+    }
+
+    @keyframes floatOrb {
+      0% { transform: translateY(0) scale(1); }
+      100% { transform: translateY(40px) scale(1.08); }
+    }
+
+    /* Container */
+    .form-wrapper {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    /* Glassmorphism Card */
+    .glass-card {
+      background: var(--glass-surface);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      box-shadow: var(--shadow-glass);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Subtle top border specular highlight */
+    .glass-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), var(--accent-cyan), rgba(255, 255, 255, 0.4), transparent);
+    }
+
+    /* Header */
+    .form-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .form-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.9rem;
+      background: rgba(34, 211, 238, 0.1);
+      border: 1px solid rgba(34, 211, 238, 0.25);
+      border-radius: var(--radius-full);
+      font-size: 0.8rem;
+      color: var(--accent-cyan);
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .form-title {
+      font-family: var(--font-heading);
+      font-size: clamp(1.75rem, 3.5vw, 2.35rem);
+      font-weight: 700;
+      background: linear-gradient(135deg, #ffffff 20%, #22d3ee 70%, #8b5cf6 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+    }
+
+    .form-subtitle {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* Form Layout Grid */
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+
+    .col-span-2 {
+      grid-column: span 2;
+    }
+
+    .col-span-1 {
+      grid-column: span 1;
+    }
+
+    /* Form Fields */
+    .form-group {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .form-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: color 0.25s ease;
+    }
+
+    .form-label span.req {
+      color: var(--accent-rose);
+      margin-left: 2px;
+    }
+
+    .field-hint {
+      font-size: 0.72rem;
+      color: var(--text-dim);
+      font-weight: 400;
+    }
+
+    /* Glass Input Wrapper with Reflection Effect */
+    .input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      border-radius: var(--radius-md);
+      background: var(--glass-input-bg);
+      border: 1px solid var(--glass-border);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow: hidden;
+    }
+
+    /* Icon prefix */
+    .input-icon {
+      position: absolute;
+      left: 1rem;
+      color: var(--text-dim);
+      font-size: 0.95rem;
+      transition: color 0.25s ease;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    /* Inputs, Selects & Textarea */
+    .form-control {
+      width: 100%;
+      padding: 0.85rem 1rem 0.85rem 2.6rem;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: var(--text-main);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .form-control::placeholder {
+      color: rgba(148, 163, 184, 0.45);
+    }
+
+    select.form-control {
+      appearance: none;
+      -webkit-appearance: none;
+      cursor: pointer;
+    }
+
+    select.form-control option {
+      background: #0f172a;
+      color: #f8fafc;
+      padding: 0.5rem;
+    }
+
+    select:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+
+    .select-arrow {
+      position: absolute;
+      right: 1rem;
+      color: var(--text-dim);
+      pointer-events: none;
+      font-size: 0.8rem;
+      z-index: 2;
+      transition: transform 0.25s ease;
+    }
+
+    textarea.form-control {
+      padding: 0.85rem 1rem;
+      resize: vertical;
+      min-height: 95px;
+      line-height: 1.5;
+    }
+
+    /* ACTIVE / FOCUS REFLECTION EFFECT */
+    /* Light Sheen Glare running across the glass surface */
+    .input-wrapper::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 40%;
+      height: 200%;
+      background: linear-gradient(
+        105deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.03) 30%,
+        rgba(255, 255, 255, 0.35) 50%,
+        rgba(255, 255, 255, 0.05) 70%,
+        transparent 100%
+      );
+      transform: rotate(25deg);
+      pointer-events: none;
+      z-index: 3;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    /* Specular glass reflection layer (mirror highlight on top half) */
+    .input-wrapper::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 48%;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0) 100%);
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.6;
+      transition: opacity 0.3s ease;
+    }
+
+    /* When input is focused/active: trigger reflection shine & neon border */
+    .input-wrapper:focus-within {
+      border-color: var(--glass-border-focus);
+      box-shadow: var(--shadow-input-focus);
+      background: rgba(15, 23, 42, 0.85);
+    }
+
+    .input-wrapper:focus-within .input-icon {
+      color: var(--accent-cyan);
+    }
+
+    .input-wrapper:focus-within::before {
+      opacity: 1;
+      background: linear-gradient(180deg, rgba(34, 211, 238, 0.15) 0%, rgba(255, 255, 255, 0.02) 100%);
+    }
+
+    .input-wrapper:focus-within::after {
+      opacity: 1;
+      animation: glassReflectionSweep 0.85s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    }
+
+    @keyframes glassReflectionSweep {
+      0% {
+        left: -60%;
+      }
+      100% {
+        left: 140%;
+      }
+    }
+
+    /* Validation States */
+    .input-wrapper.valid {
+      border-color: rgba(16, 185, 129, 0.5);
+    }
+
+    .input-wrapper.valid .validation-icon {
+      color: var(--accent-emerald);
+      opacity: 1;
+    }
+
+    .input-wrapper.invalid {
+      border-color: rgba(244, 63, 94, 0.6);
+      box-shadow: 0 0 15px rgba(244, 63, 94, 0.2);
+    }
+
+    .input-wrapper.invalid .validation-icon {
+      color: var(--accent-rose);
+      opacity: 1;
+    }
+
+    .validation-icon {
+      position: absolute;
+      right: 1rem;
+      font-size: 0.85rem;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      z-index: 2;
+    }
+
+    .error-msg {
+      font-size: 0.75rem;
+      color: var(--accent-rose);
+      display: none;
+      align-items: center;
+      gap: 0.3rem;
+      margin-top: 0.15rem;
+      animation: fadeIn 0.2s ease;
+    }
+
+    .error-msg.visible {
+      display: flex;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-3px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Confirmation Checkbox */
+    .checkbox-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-top: 0.5rem;
+    }
+
+    .checkbox-label {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      cursor: pointer;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      user-select: none;
+    }
+
+    .custom-checkbox {
+      position: relative;
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      background: var(--glass-input-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.25s ease;
+      margin-top: 2px;
+    }
+
+    .checkbox-input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    .checkbox-input:checked + .custom-checkbox {
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-violet));
+      border-color: transparent;
+      box-shadow: 0 0 12px rgba(34, 211, 238, 0.4);
+    }
+
+    .custom-checkbox i {
+      color: #0b1020;
+      font-size: 0.75rem;
+      opacity: 0;
+      transform: scale(0.5);
+      transition: all 0.2s ease;
+    }
+
+    .checkbox-input:checked + .custom-checkbox i {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* Actions Bar (Submit & Reset) */
+    .form-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 2rem;
+      position: relative;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      padding: 0.9rem 1.8rem;
+      font-family: var(--font-heading);
+      font-size: 0.95rem;
+      font-weight: 600;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      border: none;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Reset Button */
+    .btn-reset {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--glass-border);
+      color: var(--text-muted);
+      backdrop-filter: blur(10px);
+    }
+
+    .btn-reset:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--text-main);
+      border-color: rgba(255, 255, 255, 0.25);
+      transform: translateY(-2px);
+    }
+
+    /* Submit Button */
+    .btn-submit {
+      flex: 1;
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-violet));
+      color: #0b1020;
+      box-shadow: 0 4px 20px rgba(34, 211, 238, 0.35);
+    }
+
+    .btn-submit:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(34, 211, 238, 0.5);
+    }
+
+    /* Disabled submit button */
+    .btn-submit:disabled {
+      background: rgba(255, 255, 255, 0.07);
+      color: var(--text-dim);
+      box-shadow: none;
+      cursor: not-allowed;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transform: none;
+    }
+
+    /* Visual status info below submit button */
+    .submit-status-hint {
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      margin-top: 0.75rem;
+      transition: color 0.3s ease;
+    }
+
+    .submit-status-hint.ready {
+      color: var(--accent-emerald);
+      font-weight: 500;
+    }
+
+    /* ==========================================================================
+       ROCKET POST MAIL LAUNCH ANIMATION
+       ========================================================================== */
+    .rocket-launch-viewport {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      overflow: hidden;
+      display: none;
+    }
+
+    .rocket-launch-viewport.active {
+      display: block;
+    }
+
+    .flying-rocket {
+      position: fixed;
+      width: 64px;
+      height: 64px;
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      filter: drop-shadow(0 0 25px #22d3ee) drop-shadow(0 0 50px #8b5cf6);
+      transform-origin: center center;
+    }
+
+    .flying-rocket i.fa-rocket {
+      font-size: 2.8rem;
+      color: #ffffff;
+      transform: rotate(-45deg);
+    }
+
+    /* Rocket Exhaust Flame */
+    .exhaust-flame {
+      position: absolute;
+      bottom: -10px;
+      left: 6px;
+      width: 14px;
+      height: 28px;
+      background: linear-gradient(180deg, #f59e0b, #ef4444, transparent);
+      border-radius: 50%;
+      filter: blur(2px);
+      transform: rotate(45deg);
+      animation: flickerFlame 0.1s infinite alternate;
+    }
+
+    @keyframes flickerFlame {
+      0% { height: 24px; opacity: 0.9; }
+      100% { height: 34px; opacity: 1; filter: blur(3px); }
+    }
+
+    /* Smoke / Spark particle */
+    .smoke-particle {
+      position: fixed;
+      border-radius: 50%;
+      pointer-events: none;
+      background: radial-gradient(circle, rgba(34, 211, 238, 0.8), rgba(139, 92, 246, 0.3) 60%, transparent 100%);
+      animation: fadeSmoke 0.9s forwards ease-out;
+    }
+
+    @keyframes fadeSmoke {
+      0% {
+        transform: scale(0.5);
+        opacity: 0.9;
+      }
+      100% {
+        transform: scale(2.2);
+        opacity: 0;
+      }
+    }
+
+    /* Success Overlay Modal */
+    .success-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(3, 7, 18, 0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .success-modal-backdrop.open {
+      display: flex;
+      opacity: 1;
+    }
+
+    .success-card {
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(34, 211, 238, 0.4);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      max-width: 480px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(34, 211, 238, 0.25);
+      transform: scale(0.9);
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      position: relative;
+    }
+
+    .success-modal-backdrop.open .success-card {
+      transform: scale(1);
+    }
+
+    .success-icon-wrap {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(34, 211, 238, 0.2), rgba(16, 185, 129, 0.2));
+      border: 1px solid var(--accent-emerald);
+      color: var(--accent-emerald);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      margin: 0 auto 1.25rem;
+      box-shadow: 0 0 25px rgba(16, 185, 129, 0.4);
+    }
+
+    .success-title {
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      margin-bottom: 0.6rem;
+      color: var(--text-main);
+    }
+
+    .success-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 1.75rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .col-span-1, .col-span-2 {
+        grid-column: span 1;
+      }
+
+      .glass-card {
+        padding: 1.75rem 1.25rem;
+      }
+
+      .form-actions {
+        flex-direction: column-reverse;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ambient Glowing Blobs -->
+  <div class="ambient-orb orb-1"></div>
+  <div class="ambient-orb orb-2"></div>
+  <div class="ambient-orb orb-3"></div>
+
+  <!-- Rocket Launch Animation Viewport -->
+  <div id="rocket-viewport" class="rocket-launch-viewport">
+    <div id="flying-rocket" class="flying-rocket">
+      <i class="fa-solid fa-rocket"></i>
+      <div class="exhaust-flame"></div>
+    </div>
+  </div>
+
+  <!-- Success Modal -->
+  <div id="success-modal" class="success-modal-backdrop">
+    <div class="success-card">
+      <div class="success-icon-wrap">
+        <i class="fa-solid fa-circle-check"></i>
+      </div>
+      <h3 class="success-title">Request Dispatched!</h3>
+      <p class="success-desc">
+        Your request has been launched successfully across the sky into our inbox. We will review your notes and respond shortly.
+      </p>
+      <button type="button" id="close-modal-btn" class="btn btn-submit" style="width: 100%;">
+        <i class="fa-solid fa-arrow-rotate-left"></i> Submit Another Request
+      </button>
+    </div>
+  </div>
+
+  <div class="form-wrapper">
+    <div class="glass-card">
+      <div class="form-header">
+        <div class="form-badge">
+          <i class="fa-solid fa-satellite-dish"></i> Direct Dispatch Form
+        </div>
+        <h1 class="form-title">Send a Request</h1>
+        <p class="form-subtitle">Fill in all required details. The submit rocket activates once all entries are valid.</p>
+      </div>
+
+      <form id="interactive-form" novalidate autocomplete="off">
+        <div class="form-grid">
+
+          <!-- 1. NAME (Alphabets Only) -->
+          <div class="form-group col-span-1">
+            <label for="name" class="form-label">
+              <span>Full Name <span class="req">*</span></span>
+              <span class="field-hint">Alphabets only</span>
+            </label>
+            <div class="input-wrapper" id="name-wrapper">
+              <i class="fa-regular fa-user input-icon"></i>
+              <input type="text" id="name" name="name" class="form-control" placeholder="John Doe" required>
+              <i class="fa-solid fa-check validation-icon"></i>
+            </div>
+            <span class="error-msg" id="name-error"><i class="fa-solid fa-circle-exclamation"></i> Only alphabetic characters and spaces (min 2 letters).</span>
+          </div>
+
+          <!-- 2. EMAIL (Correct Email Format) -->
+          <div class="form-group col-span-1">
+            <label for="email" class="form-label">
+              <span>Email Address <span class="req">*</span></span>
+              <span class="field-hint">e.g. name@domain.com</span>
+            </label>
+            <div class="input-wrapper" id="email-wrapper">
+              <i class="fa-regular fa-envelope input-icon"></i>
+              <input type="email" id="email" name="email" class="form-control" placeholder="john.doe@example.com" required>
+              <i class="fa-solid fa-check validation-icon"></i>
+            </div>
+            <span class="error-msg" id="email-error"><i class="fa-solid fa-circle-exclamation"></i> Please enter a valid email address.</span>
+          </div>
+
+          <!-- 3. CONTACT (Phone Format) -->
+          <div class="form-group col-span-1">
+            <label for="contact" class="form-label">
+              <span>Contact Number <span class="req">*</span></span>
+              <span class="field-hint">10–15 digits</span>
+            </label>
+            <div class="input-wrapper" id="contact-wrapper">
+              <i class="fa-solid fa-phone input-icon"></i>
+              <input type="tel" id="contact" name="contact" class="form-control" placeholder="+91 98765 43210" required>
+              <i class="fa-solid fa-check validation-icon"></i>
+            </div>
+            <span class="error-msg" id="contact-error"><i class="fa-solid fa-circle-exclamation"></i> Enter a valid phone number (10 to 15 digits).</span>
+          </div>
+
+          <!-- 4. AGE (Number 18 - 100) -->
+          <div class="form-group col-span-1">
+            <label for="age" class="form-label">
+              <span>Age <span class="req">*</span></span>
+              <span class="field-hint">18 to 100 years</span>
+            </label>
+            <div class="input-wrapper" id="age-wrapper">
+              <i class="fa-solid fa-id-card input-icon"></i>
+              <input type="number" id="age" name="age" class="form-control" min="18" max="100" placeholder="28" required>
+              <i class="fa-solid fa-check validation-icon"></i>
+            </div>
+            <span class="error-msg" id="age-error"><i class="fa-solid fa-circle-exclamation"></i> Age must be between 18 and 100.</span>
+          </div>
+
+          <!-- 5. GENDER (Dropdown) -->
+          <div class="form-group col-span-1">
+            <label for="gender" class="form-label">
+              <span>Gender <span class="req">*</span></span>
+            </label>
+            <div class="input-wrapper" id="gender-wrapper">
+              <i class="fa-solid fa-venus-mars input-icon"></i>
+              <select id="gender" name="gender" class="form-control" required>
+                <option value="" disabled selected>Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Non-Binary">Non-Binary</option>
+                <option value="Other">Other / Prefer not to say</option>
+              </select>
+              <i class="fa-solid fa-chevron-down select-arrow"></i>
+            </div>
+            <span class="error-msg" id="gender-error"><i class="fa-solid fa-circle-exclamation"></i> Please select your gender.</span>
+          </div>
+
+          <!-- 6. COUNTRY (Real-time Dynamic Dropdown) -->
+          <div class="form-group col-span-1">
+            <label for="country" class="form-label">
+              <span>Country <span class="req">*</span></span>
+              <span class="field-hint">Real-time cascading</span>
+            </label>
+            <div class="input-wrapper" id="country-wrapper">
+              <i class="fa-solid fa-earth-americas input-icon"></i>
+              <select id="country" name="country" class="form-control" required>
+                <option value="" disabled selected>Select Country</option>
+              </select>
+              <i class="fa-solid fa-chevron-down select-arrow"></i>
+            </div>
+            <span class="error-msg" id="country-error"><i class="fa-solid fa-circle-exclamation"></i> Please select a country.</span>
+          </div>
+
+          <!-- 7. STATE (Dependent on Country) -->
+          <div class="form-group col-span-1">
+            <label for="state" class="form-label">
+              <span>State / Province <span class="req">*</span></span>
+            </label>
+            <div class="input-wrapper" id="state-wrapper">
+              <i class="fa-solid fa-map-location-dot input-icon"></i>
+              <select id="state" name="state" class="form-control" disabled required>
+                <option value="" disabled selected>Choose Country first</option>
+              </select>
+              <i class="fa-solid fa-chevron-down select-arrow"></i>
+            </div>
+            <span class="error-msg" id="state-error"><i class="fa-solid fa-circle-exclamation"></i> Please select a state.</span>
+          </div>
+
+          <!-- 8. CITY (Dependent on State) -->
+          <div class="form-group col-span-1">
+            <label for="city" class="form-label">
+              <span>City <span class="req">*</span></span>
+            </label>
+            <div class="input-wrapper" id="city-wrapper">
+              <i class="fa-solid fa-city input-icon"></i>
+              <select id="city" name="city" class="form-control" disabled required>
+                <option value="" disabled selected>Choose State first</option>
+              </select>
+              <i class="fa-solid fa-chevron-down select-arrow"></i>
+            </div>
+            <span class="error-msg" id="city-error"><i class="fa-solid fa-circle-exclamation"></i> Please select a city.</span>
+          </div>
+
+          <!-- 9. REQUEST TITLE -->
+          <div class="form-group col-span-2">
+            <label for="request-title" class="form-label">
+              <span>Request Title <span class="req">*</span></span>
+              <span class="field-hint">Min 3 characters</span>
+            </label>
+            <div class="input-wrapper" id="request-title-wrapper">
+              <i class="fa-solid fa-heading input-icon"></i>
+              <input type="text" id="request-title" name="requestTitle" class="form-control" placeholder="e.g. Machine Learning Consultation Request" required>
+              <i class="fa-solid fa-check validation-icon"></i>
+            </div>
+            <span class="error-msg" id="request-title-error"><i class="fa-solid fa-circle-exclamation"></i> Title must be at least 3 characters.</span>
+          </div>
+
+          <!-- 10. NOTES (Textarea) -->
+          <div class="form-group col-span-2">
+            <label for="notes" class="form-label">
+              <span>Notes / Details <span class="req">*</span></span>
+              <span class="field-hint">Min 10 characters</span>
+            </label>
+            <div class="input-wrapper" id="notes-wrapper">
+              <textarea id="notes" name="notes" class="form-control" placeholder="Please provide specific details about your project, timeline, and requirements..." required></textarea>
+            </div>
+            <span class="error-msg" id="notes-error"><i class="fa-solid fa-circle-exclamation"></i> Notes must be at least 10 characters long.</span>
+          </div>
+
+          <!-- 11. CONFIRMATION CHECKBOX -->
+          <div class="checkbox-group col-span-2">
+            <label class="checkbox-label" for="confirmation">
+              <input type="checkbox" id="confirmation" name="confirmation" class="checkbox-input" required>
+              <span class="custom-checkbox">
+                <i class="fa-solid fa-check"></i>
+              </span>
+              <span>I confirm that the information provided is accurate and I agree to proceed with this request. <span class="req">*</span></span>
+            </label>
+            <span class="error-msg" id="confirmation-error"><i class="fa-solid fa-circle-exclamation"></i> You must confirm the details before dispatching.</span>
+          </div>
+
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="form-actions">
+          <button type="reset" id="reset-btn" class="btn btn-reset">
+            <i class="fa-solid fa-arrow-rotate-left"></i> Reset Form
+          </button>
+          <button type="submit" id="submit-btn" class="btn btn-submit" disabled>
+            <i class="fa-solid fa-rocket"></i>
+            <span>Dispatch Request</span>
+          </button>
+        </div>
+
+        <p id="submit-status-hint" class="submit-status-hint">
+          <i class="fa-solid fa-lock"></i> Complete all fields properly to unlock the dispatch rocket.
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       JAVASCRIPT LOGIC
+       ========================================================================== -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+    /**
+     * GEOGRAPHICAL HIERARCHICAL DATA (Country -> State -> City)
+     */
+    const LOCATION_DATA = {
+      "India": {
+        "Karnataka": ["Bengaluru", "Mysuru", "Mangaluru", "Hubballi", "Belagavi"],
+        "Maharashtra": ["Mumbai", "Pune", "Nagpur", "Nashik", "Thane"],
+        "Tamil Nadu": ["Chennai", "Coimbatore", "Madurai", "Tiruchirappalli", "Salem"],
+        "Delhi": ["New Delhi", "North Delhi", "South Delhi", "Dwarka"],
+        "Telangana": ["Hyderabad", "Warangal", "Nizamabad", "Karimnagar"],
+        "Kerala": ["Kochi", "Thiruvananthapuram", "Kozhikode", "Thrissur"]
+      },
+      "United States": {
+        "California": ["San Francisco", "Los Angeles", "San Diego", "San Jose", "Oakland"],
+        "New York": ["New York City", "Buffalo", "Rochester", "Albany", "Syracuse"],
+        "Texas": ["Austin", "Houston", "Dallas", "San Antonio", "Fort Worth"],
+        "Washington": ["Seattle", "Spokane", "Tacoma", "Vancouver", "Bellevue"]
+      },
+      "United Kingdom": {
+        "England": ["London", "Manchester", "Birmingham", "Leeds", "Liverpool", "Bristol"],
+        "Scotland": ["Edinburgh", "Glasgow", "Aberdeen", "Dundee"],
+        "Wales": ["Cardiff", "Swansea", "Newport"]
+      },
+      "Canada": {
+        "Ontario": ["Toronto", "Ottawa", "Mississauga", "Hamilton", "Brampton"],
+        "British Columbia": ["Vancouver", "Victoria", "Surrey", "Burnaby", "Richmond"],
+        "Quebec": ["Montreal", "Quebec City", "Laval", "Gatineau"]
+      },
+      "Germany": {
+        "Bavaria": ["Munich", "Nuremberg", "Augsburg", "Regensburg"],
+        "Berlin": ["Berlin", "Spandau", "Pankow", "Mitte"],
+        "North Rhine-Westphalia": ["Cologne", "Düsseldorf", "Dortmund", "Essen"]
+      },
+      "Australia": {
+        "New South Wales": ["Sydney", "Newcastle", "Wollongong", "Central Coast"],
+        "Victoria": ["Melbourne", "Geelong", "Ballarat", "Bendigo"],
+        "Queensland": ["Brisbane", "Gold Coast", "Sunshine Coast", "Cairns"]
+      }
+    };
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // DOM Elements
+      const form = document.getElementById('interactive-form');
+      const submitBtn = document.getElementById('submit-btn');
+      const resetBtn = document.getElementById('reset-btn');
+      const statusHint = document.getElementById('submit-status-hint');
+
+      const nameInput = document.getElementById('name');
+      const emailInput = document.getElementById('email');
+      const contactInput = document.getElementById('contact');
+      const ageInput = document.getElementById('age');
+      const genderSelect = document.getElementById('gender');
+      const countrySelect = document.getElementById('country');
+      const stateSelect = document.getElementById('state');
+      const citySelect = document.getElementById('city');
+      const titleInput = document.getElementById('request-title');
+      const notesTextarea = document.getElementById('notes');
+      const confirmCheckbox = document.getElementById('confirmation');
+
+      // Success modal
+      const successModal = document.getElementById('success-modal');
+      const closeModalBtn = document.getElementById('close-modal-btn');
+
+      // Validation tracking object
+      const validityState = {
+        name: false,
+        email: false,
+        contact: false,
+        age: false,
+        gender: false,
+        country: false,
+        state: false,
+        city: false,
+        requestTitle: false,
+        notes: false,
+        confirmation: false
+      };
+
+      /**
+       * Populate Countries dropdown
+       */
+      function populateCountries() {
+        countrySelect.innerHTML = '<option value="" disabled selected>Select Country</option>';
+        Object.keys(LOCATION_DATA).forEach(country => {
+          const opt = document.createElement('option');
+          opt.value = country;
+          opt.textContent = country;
+          countrySelect.appendChild(opt);
+        });
+      }
+
+      populateCountries();
+
+      /**
+       * Country -> State cascading change
+       */
+      countrySelect.addEventListener('change', () => {
+        const selectedCountry = countrySelect.value;
+        stateSelect.innerHTML = '<option value="" disabled selected>Select State</option>';
+        citySelect.innerHTML = '<option value="" disabled selected>Choose State first</option>';
+        citySelect.disabled = true;
+
+        if (selectedCountry && LOCATION_DATA[selectedCountry]) {
+          stateSelect.disabled = false;
+          Object.keys(LOCATION_DATA[selectedCountry]).forEach(state => {
+            const opt = document.createElement('option');
+            opt.value = state;
+            opt.textContent = state;
+            stateSelect.appendChild(opt);
+          });
+        } else {
+          stateSelect.disabled = true;
+        }
+
+        validateField('country');
+        validateField('state');
+        validateField('city');
+      });
+
+      /**
+       * State -> City cascading change
+       */
+      stateSelect.addEventListener('change', () => {
+        const selectedCountry = countrySelect.value;
+        const selectedState = stateSelect.value;
+        citySelect.innerHTML = '<option value="" disabled selected>Select City</option>';
+
+        if (selectedCountry && selectedState && LOCATION_DATA[selectedCountry][selectedState]) {
+          citySelect.disabled = false;
+          LOCATION_DATA[selectedCountry][selectedState].forEach(city => {
+            const opt = document.createElement('option');
+            opt.value = city;
+            opt.textContent = city;
+            citySelect.appendChild(opt);
+          });
+        } else {
+          citySelect.disabled = true;
+        }
+
+        validateField('state');
+        validateField('city');
+      });
+
+      citySelect.addEventListener('change', () => {
+        validateField('city');
+      });
+
+      /**
+       * Validation rules
+       */
+      function validateField(fieldName, isTouched = true) {
+        let isValid = false;
+
+        switch (fieldName) {
+          case 'name': {
+            // Only alphabetic characters and spaces, min 2 chars
+            const val = nameInput.value.trim();
+            const nameRegex = /^[A-Za-z\s]{2,50}$/;
+            isValid = nameRegex.test(val);
+            updateFieldUI('name', isValid, isTouched);
+            break;
+          }
+          case 'email': {
+            // Standard email format
+            const val = emailInput.value.trim();
+            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            isValid = emailRegex.test(val);
+            updateFieldUI('email', isValid, isTouched);
+            break;
+          }
+          case 'contact': {
+            // Phone: 10 to 15 digits, allows optional leading +, spaces, hyphens
+            const val = contactInput.value.trim();
+            const phoneDigits = val.replace(/[^0-9]/g, '');
+            const phoneRegex = /^[+]?[0-9\s\-()]{10,20}$/;
+            isValid = phoneRegex.test(val) && phoneDigits.length >= 10 && phoneDigits.length <= 15;
+            updateFieldUI('contact', isValid, isTouched);
+            break;
+          }
+          case 'age': {
+            const val = parseInt(ageInput.value, 10);
+            isValid = !isNaN(val) && val >= 18 && val <= 100;
+            updateFieldUI('age', isValid, isTouched);
+            break;
+          }
+          case 'gender': {
+            isValid = genderSelect.value !== '';
+            updateFieldUI('gender', isValid, isTouched);
+            break;
+          }
+          case 'country': {
+            isValid = countrySelect.value !== '';
+            updateFieldUI('country', isValid, isTouched);
+            break;
+          }
+          case 'state': {
+            isValid = stateSelect.value !== '' && !stateSelect.disabled;
+            updateFieldUI('state', isValid, isTouched);
+            break;
+          }
+          case 'city': {
+            isValid = citySelect.value !== '' && !citySelect.disabled;
+            updateFieldUI('city', isValid, isTouched);
+            break;
+          }
+          case 'requestTitle': {
+            const val = titleInput.value.trim();
+            isValid = val.length >= 3;
+            updateFieldUI('request-title', isValid, isTouched);
+            break;
+          }
+          case 'notes': {
+            const val = notesTextarea.value.trim();
+            isValid = val.length >= 10;
+            updateFieldUI('notes', isValid, isTouched);
+            break;
+          }
+          case 'confirmation': {
+            isValid = confirmCheckbox.checked;
+            const errorEl = document.getElementById('confirmation-error');
+            if (isTouched) {
+              if (errorEl) errorEl.classList.toggle('visible', !isValid);
+            }
+            break;
+          }
+        }
+
+        validityState[fieldName] = isValid;
+        checkOverallFormValidity();
+        return isValid;
+      }
+
+      function updateFieldUI(fieldId, isValid, isTouched) {
+        const wrapper = document.getElementById(`${fieldId}-wrapper`);
+        const errorEl = document.getElementById(`${fieldId}-error`);
+
+        if (!wrapper) return;
+
+        if (isTouched) {
+          if (isValid) {
+            wrapper.classList.add('valid');
+            wrapper.classList.remove('invalid');
+            if (errorEl) errorEl.classList.remove('visible');
+          } else {
+            wrapper.classList.add('invalid');
+            wrapper.classList.remove('valid');
+            if (errorEl) errorEl.classList.add('visible');
+          }
+        } else {
+          // Untouched, remove error styles
+          wrapper.classList.remove('invalid');
+          if (errorEl) errorEl.classList.remove('visible');
+          if (isValid) wrapper.classList.add('valid');
+          else wrapper.classList.remove('valid');
+        }
+      }
+
+      /**
+       * Check if all fields are valid -> Enable / Disable Submit button
+       */
+      function checkOverallFormValidity() {
+        const allValid = Object.values(validityState).every(status => status === true);
+
+        submitBtn.disabled = !allValid;
+
+        if (allValid) {
+          statusHint.className = 'submit-status-hint ready';
+          statusHint.innerHTML = '<i class="fa-solid fa-lock-open"></i> All inputs verified! The dispatch rocket is primed and ready to launch.';
+        } else {
+          statusHint.className = 'submit-status-hint';
+          statusHint.innerHTML = '<i class="fa-solid fa-lock"></i> Complete all fields properly to unlock the dispatch rocket.';
+        }
+      }
+
+      // Input Event Listeners
+      nameInput.addEventListener('input', () => validateField('name'));
+      emailInput.addEventListener('input', () => validateField('email'));
+      contactInput.addEventListener('input', () => validateField('contact'));
+      ageInput.addEventListener('input', () => validateField('age'));
+      genderSelect.addEventListener('change', () => validateField('gender'));
+      titleInput.addEventListener('input', () => validateField('requestTitle'));
+      notesTextarea.addEventListener('input', () => validateField('notes'));
+      confirmCheckbox.addEventListener('change', () => validateField('confirmation'));
+
+      // Blur listeners for initial check
+      [nameInput, emailInput, contactInput, ageInput, titleInput, notesTextarea].forEach(elem => {
+        elem.addEventListener('blur', () => {
+          const name = elem.name;
+          validateField(name, true);
+        });
+      });
+
+      /**
+       * RESET BUTTON
+       */
+      resetBtn.addEventListener('click', () => {
+        form.reset();
+        stateSelect.innerHTML = '<option value="" disabled selected>Choose Country first</option>';
+        stateSelect.disabled = true;
+        citySelect.innerHTML = '<option value="" disabled selected>Choose State first</option>';
+        citySelect.disabled = true;
+
+        // Reset validity object
+        Object.keys(validityState).forEach(key => validityState[key] = false);
+
+        // Clear UI classes
+        document.querySelectorAll('.input-wrapper').forEach(wrapper => {
+          wrapper.classList.remove('valid', 'invalid');
+        });
+        document.querySelectorAll('.error-msg').forEach(msg => {
+          msg.classList.remove('visible');
+        });
+
+        checkOverallFormValidity();
+      });
+
+      /**
+       * ROCKET POST MAIL LAUNCH ANIMATION
+       */
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        // Final verification of all fields
+        let allValid = true;
+        Object.keys(validityState).forEach(key => {
+          if (!validateField(key, true)) {
+            allValid = false;
+          }
+        });
+
+        if (!allValid) return;
+
+        sendMail(e.target);
+
+        // Animate Rocket from Submit button to top right corner of the sky!
+        launchRocket();
+      });
+
+      function launchRocket() {
+        const rocketViewport = document.getElementById('rocket-viewport');
+        const rocket = document.getElementById('flying-rocket');
+
+        // Locate submit button on screen to start the rocket from
+        const btnRect = submitBtn.getBoundingClientRect();
+        const startX = btnRect.left + btnRect.width / 2 - 32;
+        const startY = btnRect.top + btnRect.height / 2 - 32;
+
+        // Destination: Far off past top right corner
+        const destX = window.innerWidth + 200;
+        const destY = -250;
+
+        // Show viewport
+        rocketViewport.classList.add('active');
+
+        // Initial rocket position
+        rocket.style.left = `${startX}px`;
+        rocket.style.top = `${startY}px`;
+        rocket.style.opacity = '1';
+        rocket.style.transform = 'scale(0.6) rotate(45deg)';
+
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Dispatching...';
+
+        const startTime = performance.now();
+        const duration = 1500; // 1.5s flight
+
+        function emitSmokeParticle(x, y) {
+          const particle = document.createElement('div');
+          particle.className = 'smoke-particle';
+          const size = Math.random() * 20 + 15;
+          particle.style.width = `${size}px`;
+          particle.style.height = `${size}px`;
+          particle.style.left = `${x - size / 2}px`;
+          particle.style.top = `${y - size / 2}px`;
+          rocketViewport.appendChild(particle);
+
+          setTimeout(() => {
+            if (particle.parentElement) particle.remove();
+          }, 900);
+        }
+
+        let smokeInterval = setInterval(() => {
+          const currentLeft = parseFloat(rocket.style.left) || startX;
+          const currentTop = parseFloat(rocket.style.top) || startY;
+          emitSmokeParticle(currentLeft + 10, currentTop + 35);
+        }, 35);
+
+        function stepFlight(now) {
+          const elapsed = now - startTime;
+          const t = Math.min(elapsed / duration, 1);
+
+          // Easing: easeInCubic for acceleration into the sky
+          const easeT = t * t * t;
+
+          const currentX = startX + (destX - startX) * easeT;
+          const currentY = startY + (destY - startY) * easeT;
+          const currentScale = 0.6 + 0.9 * Math.sin(t * Math.PI * 0.7);
+
+          rocket.style.left = `${currentX}px`;
+          rocket.style.top = `${currentY}px`;
+          rocket.style.transform = `scale(${currentScale}) rotate(45deg)`;
+
+          if (t < 1) {
+            requestAnimationFrame(stepFlight);
+          } else {
+            clearInterval(smokeInterval);
+            rocketViewport.classList.remove('active');
+
+            // Reset submit button state
+            submitBtn.innerHTML = '<i class="fa-solid fa-rocket"></i> <span>Dispatched!</span>';
+
+            // Show Success Modal
+            setTimeout(() => {
+              successModal.classList.add('open');
+            }, 300);
+          }
+        }
+
+        requestAnimationFrame(stepFlight);
+      }
+
+      // Close modal & reset
+      closeModalBtn.addEventListener('click', () => {
+        successModal.classList.remove('open');
+        resetBtn.click();
+        submitBtn.innerHTML = '<i class="fa-solid fa-rocket"></i> <span>Dispatch Request</span>';
+      });
+    });
+
+    function sendMail(form){
+         // Initialize EmailJS
+        emailjs.init({
+            publicKey: "BoD9lvpZEXv_ZyJDI"
+        });
+        emailjs.sendForm(
+            "service_87irjw8",
+            "template_ukc327a",
+            form
+        )
+        .then(() => {
+            form.reset();
+            console.log("Form Submitted !")
+        })
+        .catch((error) => {
+            console.error("Email error:", error);
+            status.textContent = "Failed to send message.";
+        });
+    }
+  </script>
+</body>
+</html>

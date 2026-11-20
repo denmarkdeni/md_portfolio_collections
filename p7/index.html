@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of deniston - Senior Data Scientist & Machine Learning Engineer specializing in predictive modeling, NLP, and MLOps.">
+  <meta name="keywords" content="Data Scientist, Machine Learning, AI Engineer, NLP, Deep Learning, MLOps, Portfolio, Python, Data Analytics">
+  <meta name="author" content="deniston">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="deniston | Data Scientist & Machine Learning Engineer">
+  <meta property="og:description" content="I turn messy data into models, insights and decisions that move business metrics. Explore my projects, skills, and experience.">
+  <meta property="og:image" content="static/profile.jpg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="deniston | Data Scientist & Machine Learning Engineer">
+  <meta name="twitter:description" content="I turn messy data into models, insights and decisions that move business metrics.">
+  <meta name="twitter:image" content="static/profile.jpg">
+
+  <!-- Favicon (Emoji Data URI) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📊</text></svg>">
+
+  <title>deniston | Data Scientist & Machine Learning Engineer</title>
+
+  <!-- Google Fonts: Inter & Space Grotesk -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Scroll Progress Indicator -->
+  <div id="scroll-progress" class="scroll-progress" role="progressbar" aria-label="Page reading progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
+  <!-- Sticky Blurred Navigation Bar -->
+  <header class="navbar-wrapper">
+    <nav class="navbar container" aria-label="Primary Navigation">
+      <a href="#hero" class="nav-brand" aria-label="deniston Homepage">
+        <span class="brand-bracket">&lt;</span>deniston<span class="brand-accent">.ai</span><span class="brand-bracket">/&gt;</span>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="#hero" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#education" class="nav-link">Education</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <!-- Navbar Actions (Theme Toggle & Mobile Hamburger) -->
+      <div class="nav-actions">
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Switch between light and dark theme">
+          <i class="fa-solid fa-moon" id="theme-icon"></i>
+        </button>
+
+        <button id="hamburger-btn" class="hamburger-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section id="hero" class="hero-section">
+      <!-- Interactive Neural/Particle Canvas Background -->
+      <canvas id="hero-canvas" class="hero-canvas" aria-hidden="true"></canvas>
+
+      <!-- Ambient Glow Blobs -->
+      <div class="glow-blob blob-1" aria-hidden="true"></div>
+      <div class="glow-blob blob-2" aria-hidden="true"></div>
+
+      <div class="container hero-container">
+        <div class="hero-content">
+          <div class="hero-badge reveal">
+            <span class="status-indicator"></span>
+            <span>Welcome to my data space</span>
+          </div>
+
+          <h1 class="hero-title reveal">
+            Hi, I'm <span class="gradient-text">deniston</span>
+          </h1>
+
+          <div class="typing-wrapper reveal" aria-label="Roles">
+            <span class="typing-prefix">&gt;&nbsp;</span>
+            <span id="typing-text" class="typing-text"></span>
+            <span class="typing-cursor" aria-hidden="true">|</span>
+          </div>
+
+          <p class="hero-tagline reveal">
+            I turn messy data into models, insights and decisions that move business metrics.
+          </p>
+
+          <div class="hero-cta reveal">
+            <a href="#projects" class="btn btn-primary">
+              <i class="fa-solid fa-diagram-project"></i>
+              <span>View Projects</span>
+            </a>
+            <a href="static/resume.pdf" download class="btn btn-secondary">
+              <i class="fa-solid fa-file-arrow-down"></i>
+              <span>Download Resume</span>
+            </a>
+          </div>
+
+          <div class="hero-socials reveal">
+            <span class="socials-label">Connect:</span>
+            <a href="https://linkedin.com/in/arjunkumar" target="_blank" rel="noopener" aria-label="LinkedIn Profile" class="social-link">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a href="https://github.com/arjunkumar" target="_blank" rel="noopener" aria-label="GitHub Profile" class="social-link">
+              <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="https://kaggle.com/arjunkumar" target="_blank" rel="noopener" aria-label="Kaggle Profile" class="social-link">
+              <i class="fa-brands fa-kaggle"></i>
+            </a>
+            <a href="https://twitter.com/arjunkumar" target="_blank" rel="noopener" aria-label="Twitter / X Profile" class="social-link">
+              <i class="fa-brands fa-x-twitter"></i>
+            </a>
+            <a href="https://medium.com/@arjunkumar" target="_blank" rel="noopener" aria-label="Medium Profile" class="social-link">
+              <i class="fa-brands fa-medium"></i>
+            </a>
+            <a href="mailto:arjun.kumar@example.com" class="social-link" aria-label="Send direct email">
+              <i class="fa-solid fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal">
+          <div class="profile-card">
+            <div class="profile-ring">
+              <img src="static/profile.jpg" alt="deniston - Data Scientist" class="profile-img">
+            </div>
+            <div class="floating-badge badge-ml">
+              <i class="fa-solid fa-brain"></i>
+              <span>ML & NLP</span>
+            </div>
+            <div class="floating-badge badge-perf">
+              <i class="fa-solid fa-chart-line"></i>
+              <span>92% Accuracy</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a href="#about" class="scroll-indicator" aria-label="Scroll to About section">
+        <span class="mouse">
+          <span class="wheel"></span>
+        </span>
+      </a>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="section about-section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-subtitle">01. ABOUT ME</span>
+          <h2 class="section-title">Who I Am &amp; What I Do</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-image-col reveal">
+            <div class="about-image-wrapper">
+              <img src="static/profile.jpg" alt="deniston working on machine learning" class="about-img">
+              <div class="about-experience-badge">
+                <span class="exp-number">4+</span>
+                <span class="exp-text">Years in Industry</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-content-col reveal">
+            <p class="about-bio">
+              I'm a Data Scientist with 4+ years of experience building end-to-end machine learning solutions, from data pipelines and feature engineering to model deployment and monitoring. I specialize in predictive modeling, NLP and recommendation systems, and I love translating complex analysis into clear, actionable stories for stakeholders. When I'm not training models, I write technical blogs, mentor beginners and compete on Kaggle.
+            </p>
+
+            <div class="quick-facts-grid">
+              <div class="fact-item">
+                <span class="fact-icon"><i class="fa-solid fa-location-dot"></i></span>
+                <div>
+                  <span class="fact-label">Location</span>
+                  <span class="fact-value">Bengaluru, India</span>
+                </div>
+              </div>
+              <div class="fact-item">
+                <span class="fact-icon"><i class="fa-solid fa-envelope"></i></span>
+                <div>
+                  <span class="fact-label">Email</span>
+                  <a href="mailto:arjun.kumar@example.com" class="fact-value link">arjun.kumar@example.com</a>
+                </div>
+              </div>
+              <div class="fact-item">
+                <span class="fact-icon"><i class="fa-solid fa-briefcase"></i></span>
+                <div>
+                  <span class="fact-label">Experience</span>
+                  <span class="fact-value">4+ Years</span>
+                </div>
+              </div>
+              <div class="fact-item">
+                <span class="fact-icon"><i class="fa-solid fa-circle-check"></i></span>
+                <div>
+                  <span class="fact-label">Availability</span>
+                  <span class="fact-value highlight">Open to full-time &amp; freelance</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Animated Counters Grid -->
+            <div class="counters-grid" id="counters-grid">
+              <div class="counter-card">
+                <div class="counter-number-wrapper">
+                  <span class="counter-number" data-target="4">0</span>
+                  <span class="counter-suffix">+</span>
+                </div>
+                <span class="counter-label">Years Experience</span>
+              </div>
+
+              <div class="counter-card">
+                <div class="counter-number-wrapper">
+                  <span class="counter-number" data-target="25">0</span>
+                  <span class="counter-suffix">+</span>
+                </div>
+                <span class="counter-label">Projects Delivered</span>
+              </div>
+
+              <div class="counter-card">
+                <div class="counter-number-wrapper">
+                  <span class="counter-number" data-target="12">0</span>
+                  <span class="counter-suffix">+</span>
+                </div>
+                <span class="counter-label">Models in Production</span>
+              </div>
+
+              <div class="counter-card">
+                <div class="counter-number-wrapper">
+                  <span class="counter-number" data-target="6">0</span>
+                  <span class="counter-suffix">+</span>
+                </div>
+                <span class="counter-label">Certifications</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills" class="section skills-section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-subtitle">02. TECHNICAL ARSENAL</span>
+          <h2 class="section-title">Skills &amp; Capabilities</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <!-- Rendered dynamically from script.js -->
+        <div class="skills-grid" id="skills-container"></div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE SECTION -->
+    <section id="experience" class="section experience-section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-subtitle">03. CAREER JOURNEY</span>
+          <h2 class="section-title">Work Experience</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <!-- Rendered dynamically from script.js -->
+        <div class="timeline" id="experience-timeline"></div>
+      </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="section projects-section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-subtitle">04. FEATURED WORK</span>
+          <h2 class="section-title">Recent Projects</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <!-- Category Filters -->
+        <div class="projects-filter reveal" role="tablist" aria-label="Project category filters">
+          <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All</button>
+          <button class="filter-btn" data-filter="Machine Learning" role="tab" aria-selected="false">Machine Learning</button>
+          <button class="filter-btn" data-filter="NLP" role="tab" aria-selected="false">NLP</button>
+          <button class="filter-btn" data-filter="Visualization" role="tab" aria-selected="false">Visualization</button>
+          <button class="filter-btn" data-filter="MLOps" role="tab" aria-selected="false">MLOps</button>
+        </div>
+
+        <!-- Rendered dynamically from script.js -->
+        <div class="projects-grid" id="projects-grid"></div>
+      </div>
+    </section>
+
+    <!-- EDUCATION & CERTIFICATIONS SECTION -->
+    <section id="education" class="section education-section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-subtitle">05. BACKGROUND</span>
+          <h2 class="section-title">Education &amp; Certifications</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="edu-cert-grid">
+          <!-- Education Column -->
+          <div class="edu-column reveal">
+            <h3 class="column-title"><i class="fa-solid fa-graduation-cap"></i> Education</h3>
+            <div class="cards-list">
+              <div class="edu-card">
+                <div class="edu-header">
+                  <span class="edu-degree">M.Sc. Data Science</span>
+                  <span class="edu-year">2018 – 2020</span>
+                </div>
+                <h4 class="edu-institute">Indian Institute of Technology (Example)</h4>
+                <div class="edu-grade"><i class="fa-solid fa-award"></i> CGPA: 8.9 / 10</div>
+              </div>
+
+              <div class="edu-card">
+                <div class="edu-header">
+                  <span class="edu-degree">B.E. Computer Science</span>
+                  <span class="edu-year">2014 – 2018</span>
+                </div>
+                <h4 class="edu-institute">Example Institute of Technology</h4>
+                <div class="edu-grade"><i class="fa-solid fa-award"></i> CGPA: 8.4 / 10</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Certifications Column -->
+          <div class="cert-column reveal">
+            <h3 class="column-title"><i class="fa-solid fa-certificate"></i> Certifications</h3>
+            <div class="certs-grid">
+              <div class="cert-card">
+                <div class="cert-icon"><i class="fa-brands fa-google"></i></div>
+                <div class="cert-info">
+                  <h4>Google Data Analytics</h4>
+                  <p>Professional Certificate</p>
+                </div>
+              </div>
+
+              <div class="cert-card">
+                <div class="cert-icon"><i class="fa-solid fa-brain"></i></div>
+                <div class="cert-info">
+                  <h4>DeepLearning.AI</h4>
+                  <p>TensorFlow Developer</p>
+                </div>
+              </div>
+
+              <div class="cert-card">
+                <div class="cert-icon"><i class="fa-brands fa-aws"></i></div>
+                <div class="cert-info">
+                  <h4>AWS Certified</h4>
+                  <p>Machine Learning – Specialty</p>
+                </div>
+              </div>
+
+              <div class="cert-card">
+                <div class="cert-icon"><i class="fa-solid fa-cube"></i></div>
+                <div class="cert-info">
+                  <h4>IBM Data Science</h4>
+                  <p>Professional Certificate</p>
+                </div>
+              </div>
+
+              <div class="cert-card">
+                <div class="cert-icon"><i class="fa-brands fa-kaggle"></i></div>
+                <div class="cert-info">
+                  <h4>Kaggle Expert</h4>
+                  <p>Competitions Tier</p>
+                </div>
+              </div>
+
+              <div class="cert-card">
+                <div class="cert-icon"><i class="fa-solid fa-chart-pie"></i></div>
+                <div class="cert-info">
+                  <h4>Tableau Desktop</h4>
+                  <p>Qualified Specialist</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="section contact-section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-subtitle">06. GET IN TOUCH</span>
+          <h2 class="section-title">Let's Work Together</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Contact Info Details -->
+          <div class="contact-info-col reveal">
+            <div class="contact-card">
+              <h3>Have a project in mind or want to talk data?</h3>
+              <p>
+                I am always interested in discussing machine learning models, end-to-end data pipelines, or consulting opportunities. Feel free to reach out directly or send a message.
+              </p>
+
+              <div class="contact-details-list">
+                <div class="contact-detail-item">
+                  <div class="detail-icon"><i class="fa-solid fa-envelope"></i></div>
+                  <div>
+                    <span class="detail-label">Email</span>
+                    <a href="mailto:arjun.kumar@example.com" class="detail-value">arjun.kumar@example.com</a>
+                  </div>
+                </div>
+
+                <div class="contact-detail-item">
+                  <div class="detail-icon"><i class="fa-solid fa-phone"></i></div>
+                  <div>
+                    <span class="detail-label">Phone</span>
+                    <a href="tel:+919876543210" class="detail-value">+91 98765 43210</a>
+                  </div>
+                </div>
+
+                <div class="contact-detail-item">
+                  <div class="detail-icon"><i class="fa-solid fa-location-dot"></i></div>
+                  <div>
+                    <span class="detail-label">Location</span>
+                    <span class="detail-value">Bengaluru, India</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="contact-social-wrap">
+                <span class="detail-label">Social Channels:</span>
+                <div class="social-icons-row">
+                  <a href="https://linkedin.com/in/arjunkumar" target="_blank" rel="noopener" class="social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                  <a href="https://github.com/arjunkumar" target="_blank" rel="noopener" class="social-btn" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                  <a href="https://kaggle.com/arjunkumar" target="_blank" rel="noopener" class="social-btn" aria-label="Kaggle"><i class="fa-brands fa-kaggle"></i></a>
+                  <a href="https://twitter.com/arjunkumar" target="_blank" rel="noopener" class="social-btn" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                  <a href="./form.html" target="_blank" rel="noopener" class="social-btn" aria-label="Medium"><i class="fa-brands fa-medium"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Working Contact Form -->
+          <div class="contact-form-col reveal">
+            <form id="contact-form" class="contact-form" novalidate>
+              <div class="form-group">
+                <label for="contact-name">Your Name</label>
+                <div class="input-wrapper">
+                  <i class="fa-regular fa-user input-icon"></i>
+                  <input type="text" id="contact-name" name="name" placeholder="John Doe" autocomplete="name" required>
+                </div>
+                <span class="error-msg" id="name-error">Please enter your name (minimum 2 characters).</span>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-email">Your Email</label>
+                <div class="input-wrapper">
+                  <i class="fa-regular fa-envelope input-icon"></i>
+                  <input type="email" id="contact-email" name="email" placeholder="john.doe@example.com" autocomplete="email" required>
+                </div>
+                <span class="error-msg" id="email-error">Please enter a valid email address.</span>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-message">Your Message</label>
+                <div class="input-wrapper">
+                  <textarea id="contact-message" name="message" rows="5" placeholder="Hi deniston, I'd like to discuss a machine learning project..." required></textarea>
+                </div>
+                <span class="error-msg" id="message-error">Please write a message (minimum 10 characters).</span>
+              </div>
+
+              <button type="submit" id="submit-btn" class="btn btn-primary btn-block">
+                <i class="fa-solid fa-paper-plane"></i>
+                <span>Send Message</span>
+              </button>
+
+              <div id="form-feedback" class="form-feedback" role="alert" aria-live="polite"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-top">
+        <a href="#hero" class="nav-brand">
+          <span class="brand-bracket">&lt;</span>deniston<span class="brand-accent">.ai</span><span class="brand-bracket">/&gt;</span>
+        </a>
+        <p class="footer-tagline">Turning complex data into production intelligence.</p>
+        <div class="footer-socials">
+          <a href="https://linkedin.com/in/arjunkumar" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://github.com/arjunkumar" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="https://kaggle.com/arjunkumar" target="_blank" rel="noopener" aria-label="Kaggle"><i class="fa-brands fa-kaggle"></i></a>
+          <a href="https://twitter.com/arjunkumar" target="_blank" rel="noopener" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="https://medium.com/@arjunkumar" target="_blank" rel="noopener" aria-label="Medium"><i class="fa-brands fa-medium"></i></a>
+          <a href="mailto:arjun.kumar@example.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <div class="footer-bottom">
+        <p class="copyright">&copy; 2026 deniston. All rights reserved.</p>
+        <p class="made-with">Built with <i class="fa-solid fa-heart heart-icon"></i> for Data Science &amp; AI</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Floating Button -->
+  <button id="back-to-top" class="back-to-top-btn" aria-label="Back to top of page">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- Custom Vanilla JS Script -->
+  <script src="script.js"></script>
+</body>
+</html>
